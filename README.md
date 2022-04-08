@@ -1,8 +1,8 @@
 # FlutterMadeEasy_ZeroToMastery
 Basic Course in Dart &amp; Flutter. Introduction to modern app development with the Flutter Framework.
-Created for the Flutter-Community by Max Steffen & Max Berktold.
+* - Created for the Flutter-Community by Max Steffen & Max Berktold - *
 
-With this course, we empower developers worldwide and unite them in a great community!
+**With this course, we want to empower developers worldwide and unite them in a great community!**
 
 Get started with app development with Flutter with this course. This course goes far beyond the basics and differs from other courses in that you learn really professional app development based on years of Flutter Freelancer experience.
 
@@ -18,22 +18,24 @@ Flutter Community We now have the largest active German Flutter Community on our
 
 ### ✅  UP TO DATE: The course and all projects were last updated in March 2022.
 
-What will we learn?
+### What will we learn?
 
-⭐️  Dart Basics
+#### ⭐️  Dart Basics
 
-In this course you will first get to know the basics of programming in Dart. We will also go into the essential parts of programming with the Dart language and we will learn how to set up our development environment and deal with the Code Editor VS Code. We'll start with the basic knowledge of what a variable actually is, and then work our way up to object orientation and asynchronous programming.⭐️  Flutter Basics
+In this course you will first get to know the basics of programming in Dart. We will also go into the essential parts of programming with the Dart language and we will learn how to set up our development environment and deal with the Code Editor VS Code. We'll start with the basic knowledge of what a variable actually is, and then work our way up to object orientation and asynchronous programming.
+
+#### ⭐️  Flutter Basics
 
 Here We'll give you an introduction to the most important elements of UI creation with the Flutter Framework and teach you all the basics you need to write your own user interfaces for your apps. From the explanation of how the framework works, to the Using individual UI components, themes, animations, navigation and much more, everything is included!
 
-✅   Content:
+#### ✅   Content:
 
 Basic course Dart - basics of programming
 
 Basic course Flutter - basics of app development with Flutter
 
-❎   What's next? - road map
+#### ❎   What's next? - road map
 
-❗️ Important: In this course, We aimed to give you all the knowledge you need to start app development with Flutter quickly and effectively. We am not too "obsessed with details" and will not go into all the complex background processes that you are taught in a course of study, for example.
+❗️ **Important:** In this course, We aimed to give you all the knowledge you need to start app development with Flutter quickly and effectively. We am not too "obsessed with details" and will not go into all the complex background processes that you are taught in a course of study, for example.
 
-Here the focus is on quality and fun.
+**Here the focus is on quality and fun.**
