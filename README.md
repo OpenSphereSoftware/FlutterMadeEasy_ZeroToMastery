@@ -23,7 +23,9 @@ What will we learn?
 
 In this course you will first get to know the basics of programming in Dart. We will also go into the essential parts of programming with the Dart language and we will learn how to set up our development environment and deal with the Code Editor VS Code. We'll start with the basic knowledge of what a variable actually is, and then work our way up to object orientation and asynchronous programming.⭐️  Flutter Basics
 
-Here We'll give you an introduction to the most important elements of UI creation with the Flutter Framework and teach you all the basics you need to write your own user interfaces for your apps. From the explanation of how the framework works, to the Using individual UI components, themes, animations, navigation and much more, everything is included!✅   Content:
+Here We'll give you an introduction to the most important elements of UI creation with the Flutter Framework and teach you all the basics you need to write your own user interfaces for your apps. From the explanation of how the framework works, to the Using individual UI components, themes, animations, navigation and much more, everything is included!
+
+✅   Content:
 
 Basic course Dart - basics of programming
 
