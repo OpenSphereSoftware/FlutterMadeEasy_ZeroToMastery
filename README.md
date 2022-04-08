@@ -31,9 +31,9 @@ Here We'll give you an introduction to the most important elements of UI creatio
 
 #### ✅   Content:
 
-Basic course Dart - basics of programming
+* Basic course Dart - basics of programming
 
-Basic course Flutter - basics of app development with Flutter
+* Basic course Flutter - basics of app development with Flutter
 
 #### ❎   What's next? - road map
 
