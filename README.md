@@ -16,7 +16,7 @@ Also: Flutter and the Dart language are great, really fun to develop with!
 
 Flutter Community We now have the largest active German Flutter Community on our own Discord server. Now we create also a Server for the Englisch Community. Here you can exchange ideas with other developers and support each other. We look forward to having you with us too!
 
-✅ UP TO DATE: The course and all projects were last updated in March 2022.
+✅ ### UP TO DATE: The course and all projects were last updated in March 2022.
 
 What will we learn?
 
