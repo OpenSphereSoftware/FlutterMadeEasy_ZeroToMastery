@@ -1,5 +1,6 @@
 # FlutterMadeEasy_ZeroToMastery
 Basic Course in Dart &amp; Flutter. Introduction to modern app development with the Flutter Framework.
+
 *Created for the Flutter-Community by Max Steffen & Max Berktold*
 
 **With this course, we want to empower developers worldwide and unite them in a great community!**
