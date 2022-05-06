@@ -20,7 +20,7 @@ class Car {
   late String _color;
 
   //! setter - set attribute
-  set setColor(String color) {
+  set setColor(String color){
     // here you can validate the input
     this._color = color;
   }
@@ -30,12 +30,7 @@ class Car {
 
   //! methods
   void drive() {
-    _selectGear();
     print("car is moving");
-  }
-
-  void _selectGear() {
-    print("Gear 1");
   }
 
   void whichColor() {
