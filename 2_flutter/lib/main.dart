@@ -14,10 +14,20 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(appBarTheme: const AppBarTheme(backgroundColor: Colors.amber)),
       home: Scaffold(
         appBar: AppBar(title: const Text("Flutter Basics")),
-        body: const Center(
-          child: Text("Hello World!"),
+        body: Center(
+          child: Container(
+            height: 200,
+            width: 200,
+            decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(10)),
+            child: const Center(
+              child: Text("Hello World!", style: TextStyle(color: Colors.red, fontSize: 20)),
+            ),
+          ),
         ),
-        floatingActionButton: FloatingActionButton(onPressed: () => debugPrint('clicked'), child: const Icon(Icons.ac_unit)),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => debugPrint('clicked'),
+          child: const Icon(Icons.ac_unit),
+        ),
       ),
     );
   }
