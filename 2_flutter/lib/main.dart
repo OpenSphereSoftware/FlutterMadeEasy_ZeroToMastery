@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,11 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(appBarTheme: const AppBarTheme(backgroundColor: Colors.amber)),
       home: Scaffold(
         appBar: AppBar(title: const Text("Flutter Basics")),
         body: const Center(
           child: Text("Hello World!"),
         ),
+        floatingActionButton: FloatingActionButton(onPressed: () => debugPrint('clicked'), child: const Icon(Icons.ac_unit)),
       ),
     );
   }
