@@ -20,6 +20,34 @@ class MyApp extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const Expanded(
+                    child: Text(
+                      'Max Steffen - Freelancer for flutter - living in germany',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  Container(
+                    height: 20,
+                    width: 20,
+                    color: Colors.blue,
+                  ),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  Container(
+                    height: 20,
+                    width: 20,
+                    color: Colors.green,
+                  ),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                ],
+              ),
               Container(
                 color: Colors.green,
                 child: const Padding(
