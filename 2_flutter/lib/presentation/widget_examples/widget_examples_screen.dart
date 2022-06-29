@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbasics/presentation/components/custom_button.dart';
 import 'package:flutterbasics/presentation/widget_examples/widgets/buttons_example.dart';
 import 'package:flutterbasics/presentation/widget_examples/widgets/first_column_child.dart';
 import 'package:flutterbasics/presentation/widget_examples/widgets/hello_world.dart';
@@ -21,39 +22,60 @@ class WidgetExampleScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              SizedBox(
+            children: [
+              const SizedBox(
                 height: 20,
               ),
-              RowEpandedExample(),
-              SizedBox(
+              const RowEpandedExample(),
+              const SizedBox(
                 height: 20,
               ),
-              FirstColumnChild(),
-              SizedBox(
+              const FirstColumnChild(),
+              const SizedBox(
                 height: 20,
               ),
-              HelloWorld(),
-              SizedBox(
+              const HelloWorld(),
+              const SizedBox(
                 height: 20,
               ),
-              MaxSteffen(),
-              SizedBox(
+              const MaxSteffen(),
+              const SizedBox(
                 height: 20,
               ),
-              MaxBerktold(),
-              SizedBox(
+              const MaxBerktold(),
+              const SizedBox(
                 height: 40,
               ),
-              MediaQueryExample(),
-              SizedBox(
+              const MediaQueryExample(),
+              const SizedBox(
                 height: 40,
               ),
-              LayoutBuilderExample(),
-              SizedBox(
+              const LayoutBuilderExample(),
+              const SizedBox(
                 height: 40,
               ),
-              ButtonExamples()
+              const ButtonExamples(),
+              const SizedBox(
+                height: 20,
+              ),
+              CustomButton(
+                onTap: () {
+                  print("tapped");
+                },
+                icon: Icons.home,
+                iconColor: Colors.white,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              CustomButtonGesture(
+                  onTap: () {
+                    print("CustomButtonGesture tapped");
+                  },
+                  text: "gesture button"),
+              const SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
