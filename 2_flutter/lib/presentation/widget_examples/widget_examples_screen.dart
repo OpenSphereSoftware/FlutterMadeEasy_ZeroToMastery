@@ -7,6 +7,7 @@ import 'package:flutterbasics/presentation/widget_examples/widgets/layout_builde
 import 'package:flutterbasics/presentation/widget_examples/widgets/max_berktold.dart';
 import 'package:flutterbasics/presentation/widget_examples/widgets/max_steffen.dart';
 import 'package:flutterbasics/presentation/widget_examples/widgets/media_query_example.dart';
+import 'package:flutterbasics/presentation/widget_examples/widgets/person.dart';
 import 'package:flutterbasics/presentation/widget_examples/widgets/row_expanded_example.dart';
 
 class WidgetExampleScreen extends StatelessWidget {
@@ -38,11 +39,25 @@ class WidgetExampleScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const MaxSteffen(),
+              const Person(
+                name: 'Max Steffen',
+                age: '32',
+                country: 'germany',
+                job: 'flutter expert and co-founder of tripmind',
+                pictureUrl:
+                    'https://media-exp1.licdn.com/dms/image/C4E03AQHZ3nboU2DB8w/profile-displayphoto-shrink_800_800/0/1645799763170?e=1662595200&v=beta&t=qg_sygyJbez3TnXoG4TQv4_qkwQ66gSNpg6a7ujEk-w',
+              ),
               const SizedBox(
                 height: 20,
               ),
-              const MaxBerktold(),
+              const Person(
+                name: 'Max Berktold',
+                age: '21',
+                country: 'germany',
+                job: 'flutter expert',
+                pictureUrl:
+                    'https://static.wixstatic.com/media/e38214_2415b962d0244310bb630e9cb6ac7010~mv2.jpg/v1/fill/w_388,h_372,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/IMG_5274_edited_edited_edited_edited.jpg',
+              ),
               const SizedBox(
                 height: 40,
               ),
