@@ -16,7 +16,7 @@ class HelloWorld extends StatelessWidget {
             color: Colors.blue,
             borderRadius: BorderRadius.circular(10)),
         child: const Center(
-          child: Text("Hello World!",
+          child: Text('Hello World!',
               style: TextStyle(color: Colors.red, fontSize: 20)),
         ),
       ),

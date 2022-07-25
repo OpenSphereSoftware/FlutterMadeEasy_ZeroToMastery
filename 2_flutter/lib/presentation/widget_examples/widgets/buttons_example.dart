@@ -9,10 +9,10 @@ class ButtonExamples extends StatelessWidget {
       children: [
         TextButton(
             onLongPress: () {
-              print("Long pressed");
+              print('Long pressed');
             },
             onPressed: () {
-              print("TextButton pressed");
+              print('TextButton pressed');
             },
             child: Container(
                 decoration: const BoxDecoration(
@@ -21,13 +21,13 @@ class ButtonExamples extends StatelessWidget {
                 child: const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
-                    "Text Button",
+                    'Text Button',
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                 ))),
         IconButton(
             onPressed: () {
-              print("icon pressed");
+              print('icon pressed');
             },
             icon: const Icon(Icons.play_arrow)),
         Switch(

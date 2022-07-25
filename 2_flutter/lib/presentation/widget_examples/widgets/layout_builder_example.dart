@@ -18,7 +18,7 @@ class LayoutBuilderExample extends StatelessWidget {
             width: constraints.maxWidth * 0.8,
             height: constraints.maxHeight / 2,
             child: const Center(
-              child: Text("Layout Builder Example"),
+              child: Text('Layout Builder Example'),
             ),
           ),
         );

@@ -13,7 +13,7 @@ class MediaQueryExample extends StatelessWidget {
       width: size.width / 2,
       height: size.height / 5,
       child: const Center(
-        child: Text("MediaQuery Example"),
+        child: Text('MediaQuery Example'),
       ),
     );
   }
