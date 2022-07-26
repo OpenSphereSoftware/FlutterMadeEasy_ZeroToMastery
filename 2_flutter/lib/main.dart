@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbasics/presentation/counter/conter_screen.dart';
+import 'package:flutterbasics/presentation/list/list_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
           appBarTheme: const AppBarTheme(backgroundColor: Colors.amber)),
-      home: const CounterScreen(),
+      home: const ListScreen(),
     );
   }
 }
