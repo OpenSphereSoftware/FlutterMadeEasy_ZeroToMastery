@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbasics/presentation/list/list_screen.dart';
+import 'package:flutterbasics/root_bottom_navigation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
           appBarTheme: const AppBarTheme(backgroundColor: Colors.amber)),
-      home: const ListScreen(),
+      home: const RootBottomNavigation(),
     );
   }
 }
