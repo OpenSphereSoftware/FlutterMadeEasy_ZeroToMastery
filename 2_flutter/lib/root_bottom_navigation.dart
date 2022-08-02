@@ -15,17 +15,14 @@ class _RootBottomNavigationState extends State<RootBottomNavigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: _currentIndex, 
-        children: const [
-          WidgetExampleScreen(),
-          CounterScreen(),
-          ListScreen(),
-        ]
-      ),
+      body: IndexedStack(index: _currentIndex, children: const [
+        WidgetExampleScreen(),
+        CounterScreen(),
+        ListScreen(),
+      ]),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.amber,
-        selectedItemColor: Colors.blue,
+          backgroundColor: Colors.amber,
+          selectedItemColor: Colors.blue,
           onTap: (index) {
             setState(() {
               _currentIndex = index;
