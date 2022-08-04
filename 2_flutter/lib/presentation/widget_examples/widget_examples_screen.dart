@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbasics/presentation/components/custom_button.dart';
-import 'package:flutterbasics/presentation/navigation_example_screens/screen_one.dart';
-import 'package:flutterbasics/presentation/navigation_example_screens/screen_two.dart';
 import 'package:flutterbasics/presentation/widget_examples/widgets/buttons_example.dart';
 import 'package:flutterbasics/presentation/widget_examples/widgets/first_column_child.dart';
 import 'package:flutterbasics/presentation/widget_examples/widgets/hello_world.dart';
@@ -52,9 +50,9 @@ class WidgetExampleScreen extends StatelessWidget {
               ),
               const Person(
                 name: 'Max Berktold',
-                age: '21',
+                age: '24',
                 country: 'germany',
-                job: 'flutter expert',
+                job: 'flutter expert - community admin',
                 pictureUrl:
                     'https://static.wixstatic.com/media/e38214_2415b962d0244310bb630e9cb6ac7010~mv2.jpg/v1/fill/w_388,h_372,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/IMG_5274_edited_edited_edited_edited.jpg',
               ),
@@ -75,10 +73,7 @@ class WidgetExampleScreen extends StatelessWidget {
               ),
               CustomButton(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: ((context) => const ScreenOne())));
+                  Navigator.pushNamed(context, '/screenOne');
                 },
                 icon: Icons.home,
                 iconColor: Colors.white,
@@ -88,10 +83,7 @@ class WidgetExampleScreen extends StatelessWidget {
               ),
               CustomButtonGesture(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: ((context) => const ScreenTwo())));
+                     Navigator.pushNamed(context, '/screenTwo');
                   },
                   text: 'gesture button'),
               const SizedBox(
