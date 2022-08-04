@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbasics/presentation/components/custom_button.dart';
+import 'package:flutterbasics/presentation/navigation_example_screens/screen_one.dart';
+import 'package:flutterbasics/presentation/navigation_example_screens/screen_two.dart';
 import 'package:flutterbasics/presentation/widget_examples/widgets/buttons_example.dart';
 import 'package:flutterbasics/presentation/widget_examples/widgets/first_column_child.dart';
 import 'package:flutterbasics/presentation/widget_examples/widgets/hello_world.dart';
@@ -73,7 +75,10 @@ class WidgetExampleScreen extends StatelessWidget {
               ),
               CustomButton(
                 onTap: () {
-                  print('tapped');
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const ScreenOne())));
                 },
                 icon: Icons.home,
                 iconColor: Colors.white,
@@ -83,7 +88,10 @@ class WidgetExampleScreen extends StatelessWidget {
               ),
               CustomButtonGesture(
                   onTap: () {
-                    print('CustomButtonGesture tapped');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const ScreenTwo())));
                   },
                   text: 'gesture button'),
               const SizedBox(
