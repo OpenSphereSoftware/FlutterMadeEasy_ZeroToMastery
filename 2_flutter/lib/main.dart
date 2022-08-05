@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterbasics/presentation/navigation_example_screens/screen_one.dart';
 import 'package:flutterbasics/presentation/navigation_example_screens/screen_two.dart';
 import 'package:flutterbasics/root_bottom_navigation.dart';
+import 'package:flutterbasics/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,8 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-          appBarTheme: const AppBarTheme(backgroundColor: Colors.amber)),
+      themeMode: ThemeMode.dark,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
       home: const RootBottomNavigation(),
       routes: <String, WidgetBuilder>{
         '/root': (BuildContext context) => const RootBottomNavigation(),

@@ -21,8 +21,7 @@ class _RootBottomNavigationState extends State<RootBottomNavigation> {
         ListScreen(),
       ]),
       bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.amber,
-          selectedItemColor: Colors.blue,
+          backgroundColor: Theme.of(context).colorScheme.primaryContainer,
           onTap: (index) {
             setState(() {
               _currentIndex = index;
