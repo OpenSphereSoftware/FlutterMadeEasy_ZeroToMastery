@@ -16,15 +16,13 @@ class _ButtonExamplesState extends State<ButtonExamples> {
       children: [
         TextButton(
             onLongPress: () {
-              print('Long pressed');
+              debugPrint('Long pressed');
             },
             onPressed: () {
-              print('TextButton pressed');
+              debugPrint('TextButton pressed');
             },
             child: Container(
-                decoration: const BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.all(Radius.circular(8))),
+                decoration: const BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.all(Radius.circular(8))),
                 child: const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
@@ -34,7 +32,7 @@ class _ButtonExamplesState extends State<ButtonExamples> {
                 ))),
         IconButton(
             onPressed: () {
-              print('icon pressed');
+              debugPrint('icon pressed');
             },
             icon: const Icon(Icons.play_arrow)),
         Switch(
