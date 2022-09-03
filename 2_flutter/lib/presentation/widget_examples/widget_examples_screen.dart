@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbasics/application/theme_service.dart';
 import 'package:flutterbasics/presentation/components/custom_button.dart';
 import 'package:flutterbasics/presentation/widget_examples/widgets/buttons_example.dart';
 import 'package:flutterbasics/presentation/widget_examples/widgets/first_column_child.dart';
@@ -7,6 +8,7 @@ import 'package:flutterbasics/presentation/widget_examples/widgets/layout_builde
 import 'package:flutterbasics/presentation/widget_examples/widgets/media_query_example.dart';
 import 'package:flutterbasics/presentation/widget_examples/widgets/person.dart';
 import 'package:flutterbasics/presentation/widget_examples/widgets/row_expanded_example.dart';
+import 'package:provider/provider.dart';
 
 class WidgetExampleScreen extends StatelessWidget {
   const WidgetExampleScreen({Key? key}) : super(key: key);
@@ -91,7 +93,9 @@ class WidgetExampleScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => debugPrint('clicked'),
+        onPressed: () {
+          Provider.of<ThemeService>(context, listen: false).toggleTheme();
+        },
         child: const Icon(Icons.ac_unit),
       ),
     );
