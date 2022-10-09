@@ -1,4 +1,4 @@
-import 'package:advicer/3_application/pages/advice/bloc/advicer_bloc.dart';
+import 'package:advicer/2_application/pages/advice/bloc/advicer_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
