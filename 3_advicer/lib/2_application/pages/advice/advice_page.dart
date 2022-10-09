@@ -1,11 +1,11 @@
-import 'package:advicer/3_application/core/services/theme_service.dart';
-import 'package:advicer/3_application/pages/advice/bloc/advicer_bloc.dart';
-import 'package:advicer/3_application/pages/advice/widgets/custom_button.dart';
-import 'package:advicer/3_application/pages/advice/widgets/error_message.dart';
+import 'package:advicer/2_application/core/services/theme_service.dart';
+import 'package:advicer/2_application/pages/advice/widgets/custom_button.dart';
+import 'package:advicer/2_application/pages/advice/widgets/error_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
+import 'bloc/advicer_bloc.dart';
 import 'widgets/advice_field.dart';
 
 class AdvicerPageWrapperProvider extends StatelessWidget {
