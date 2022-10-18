@@ -16,6 +16,8 @@ dependencies:
     sdk: flutter
   provider: ^6.0.3
   flutter_bloc: ^8.1.1
+  equatable: ^2.0.5
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:
