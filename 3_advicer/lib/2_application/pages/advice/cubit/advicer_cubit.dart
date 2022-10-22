@@ -11,19 +11,19 @@ const serverFailureMessage = 'Ups, API Error. please try again!';
 const cacheFailureMessage = 'Ups, chache failed. Please try again!';
 
 class AdvicerCubit extends Cubit<AdvicerCubitState> {
-  AdvicerCubit() : super(AdvicerInitial());
-  final AdviceUseCases adviceUseCases = AdviceUseCases();
-  // could also use other usecases
+  final AdviceUseCases adviceUseCases;
+  AdvicerCubit({required this.adviceUseCases}) : super(AdvicerInitial());
 
   void adviceRequested() async {
     emit(AdvicerStateLoading());
     final failureOrAdvice = await adviceUseCases.getAdvice();
     failureOrAdvice.fold(
-        (failure) => emit(AdvicerStateError(message: _mapFailureToMessage(failure))),
+        (failure) =>
+            emit(AdvicerStateError(message: _mapFailureToMessage(failure))),
         (advice) => emit(AdvicerStateLoaded(advice: advice.advice)));
   }
 
-  String _mapFailureToMessage(Failure failure){
+  String _mapFailureToMessage(Failure failure) {
     switch (failure.runtimeType) {
       case ServerFailure:
         return serverFailureMessage;
