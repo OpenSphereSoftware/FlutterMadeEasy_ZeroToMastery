@@ -14,7 +14,7 @@ dependencies:
   cupertino_icons: ^1.0.5
   flutter:
     sdk: flutter
-  provider: ^6.0.3
+  provider: ^6.0.4
   flutter_bloc: ^8.1.1
   equatable: ^2.0.5
   dartz: ^0.10.1
