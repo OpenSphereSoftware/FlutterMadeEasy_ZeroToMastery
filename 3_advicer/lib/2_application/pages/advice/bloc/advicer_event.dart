@@ -6,4 +6,4 @@ abstract class AdvicerEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class AviceRequestedEvent extends AdvicerEvent {}
+class AdviceRequestedEvent extends AdvicerEvent {}
