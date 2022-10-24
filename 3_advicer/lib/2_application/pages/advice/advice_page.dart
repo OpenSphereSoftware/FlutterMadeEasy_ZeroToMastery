@@ -27,50 +27,60 @@ class AdvicerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Advicer',
-            style: themeData.textTheme.headline1,
-          ),
-          centerTitle: true,
-          actions: [
-            Switch(
-                value: Provider.of<ThemeService>(context).isDarkModeOn,
-                onChanged: (_) {
-                  Provider.of<ThemeService>(context, listen: false)
-                      .toggleTheme();
-                })
+      appBar: AppBar(
+        title: Text(
+          'Advicer',
+          style: themeData.textTheme.headline1,
+        ),
+        centerTitle: true,
+        actions: [
+          Switch(
+              value: Provider.of<ThemeService>(context).isDarkModeOn,
+              onChanged: (_) {
+                Provider.of<ThemeService>(context, listen: false).toggleTheme();
+              })
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 50),
+        child: Column(
+          children: [
+            Expanded(
+              child: Center(
+                child: BlocBuilder<AdvicerCubit, AdvicerCubitState>(
+                  builder: (context, state) {
+                    if (state is AdvicerInitial) {
+                      return Text(
+                        'Your Advice is waiting for you!',
+                        style: themeData.textTheme.headline1,
+                      );
+                    } else if (state is AdvicerStateLoading) {
+                      return CircularProgressIndicator(
+                        color: themeData.colorScheme.secondary,
+                      );
+                    } else if (state is AdvicerStateLoaded) {
+                      return AdviceField(
+                        advice: state.advice,
+                      );
+                    } else if (state is AdvicerStateError) {
+                      return ErrorMessage(message: state.message);
+                    }
+                    return const SizedBox();
+                  },
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 200,
+              child: Center(
+                child: CustomButton(
+                  onTap: () => BlocProvider.of<AdvicerCubit>(context).adviceRequested(),
+                ),
+              ),
+            )
           ],
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 50),
-          child: Column(
-            children: [
-              Expanded(
-                  child: Center(child: BlocBuilder<AdvicerCubit, AdvicerCubitState>(
-                builder: (context, state) {
-                  if (state is AdvicerInitial) {
-                    return Text(
-                      'Your Advice is waiting for you!',
-                      style: themeData.textTheme.headline1,
-                    );
-                  } else if (state is AdvicerStateLoading) {
-                    return CircularProgressIndicator(
-                      color: themeData.colorScheme.secondary,
-                    );
-                  } else if (state is AdvicerStateLoaded) {
-                    return AdviceField(
-                      advice: state.advice,
-                    );
-                  } else if (state is AdvicerStateError) {
-                    return ErrorMessage(message: state.message);
-                  }
-                  return const SizedBox();
-                },
-              ))),
-              const SizedBox(height: 200, child: Center(child: CustomButton()))
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }
