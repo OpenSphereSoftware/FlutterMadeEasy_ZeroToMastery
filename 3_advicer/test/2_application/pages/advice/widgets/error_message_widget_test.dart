@@ -1,4 +1,3 @@
-import 'package:advicer/2_application/pages/advice/widgets/advice_field.dart';
 import 'package:advicer/2_application/pages/advice/widgets/error_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -20,9 +19,9 @@ void main() {
           await widgetTester.pumpWidget(widgetUnderTest(message: 'a'));
           await widgetTester.pumpAndSettle();
 
-          final adviceFieldFinder = find.byType(AdviceField);
+          final errorMessageFinder = find.byType(ErrorMessage);
 
-          expect(adviceFieldFinder, findsOneWidget);
+          expect(errorMessageFinder, findsOneWidget);
         },
       );
 
@@ -32,9 +31,9 @@ void main() {
           await widgetTester.pumpWidget(widgetUnderTest(message: 'a'));
           await widgetTester.pumpAndSettle();
 
-          final adviceFieldFinder = find.byType(AdviceField);
+          final errorMessageFinder = find.byType(ErrorMessage);
 
-          expect(adviceFieldFinder, findsOneWidget);
+          expect(errorMessageFinder, findsOneWidget);
         },
       );
 
@@ -48,9 +47,9 @@ void main() {
           );
           await widgetTester.pumpAndSettle();
 
-          final adviceFieldFinder = find.byType(AdviceField);
+          final errorMessageFinder = find.byType(ErrorMessage);
 
-          expect(adviceFieldFinder, findsOneWidget);
+          expect(errorMessageFinder, findsOneWidget);
         },
       );
     });
