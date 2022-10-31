@@ -30,6 +30,8 @@ dev_dependencies:
   mockito: ^5.3.2
   bloc_test: ^9.1.0
   mocktail: ^0.3.0
+  platform: ^3.1.0
+  file: ^6.1.4
 
 
 flutter:
