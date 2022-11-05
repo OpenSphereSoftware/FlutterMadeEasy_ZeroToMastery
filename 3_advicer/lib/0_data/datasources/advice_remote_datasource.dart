@@ -21,7 +21,7 @@ class AdviceRemoteDatasourceImpl implements AdviceRemoteDatasource {
     final response = await client.get(
       Uri.parse('https://api.flutter-community.com/api/v1/advice'),
       headers: {
-        'content-type': 'application/json ',
+        'content-type': 'application/json',
       },
     );
     if (response.statusCode != 200) {
