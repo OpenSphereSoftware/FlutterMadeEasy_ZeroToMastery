@@ -1,26 +1,29 @@
 void main() {
   Car car1 = Car();
-  car1.color = "rot";
 
-  Car car2 = Car();
-  car2.color = "blau";
+  // To test this, you need to move your Car class into a own cars.dart file
+  // Dart only knows file private fields and methods, so everyone in this file
+  // can access the _color attribute from a car.
+  print('Using private attribute:');
+  car1._color = 'blue';
+  car1.carColor();
 
-  car1.whichColor();
-  car2.whichColor();
+  print('Using setter:');
 
-  car1.drive();
+  car1.setColor = 'green';
+  car1.carColor();
 }
 
 class Car {
-  //! attribute
-  late String color;
+  late String _color;
 
-  //! methods
-  void drive() {
-    print("car is moving");
+  set setColor(String color) {
+    this._color = color;
   }
 
-  void whichColor() {
-    print('car color: ${this.color}');
+  String get color => this._color;
+
+  void carColor() {
+    print('Car is ${this._color}');
   }
 }
