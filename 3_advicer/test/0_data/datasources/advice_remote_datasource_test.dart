@@ -52,7 +52,7 @@ void main() {
         when(mockClient.get(
           Uri.parse('https://api.flutter-community.com/api/v1/advice'),
           headers: {
-            'content-type': 'application/json ',
+            'content-type': 'application/json',
           },
         )).thenAnswer((realInvocation) => Future.value(Response(responseBody, 200)));
 
