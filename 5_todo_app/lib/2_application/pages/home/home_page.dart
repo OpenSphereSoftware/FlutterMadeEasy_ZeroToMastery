@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:go_router/go_router.dart';
+import 'package:todo_app/1_domain/entities/unique_id.dart';
 import 'package:todo_app/2_application/core/page_route_config.dart';
 import 'package:todo_app/2_application/pages/overview/todo_overview.dart';
 import 'package:todo_app/2_application/pages/settings/settings_page.dart';
+
+typedef TodoSelectedCallback = void Function(UniqueID?);
 
 class HomePage extends StatefulWidget {
   HomePage({
@@ -32,6 +35,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  UniqueID? currentElement;
+
+  void selectTodo(UniqueID? selectedElement) {
+    setState(() {
+      currentElement = selectedElement;
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -69,6 +80,7 @@ class _HomePageState extends State<HomePage> {
                 label: page.key,
               ))
           .toList(),
+      bodyRatio: 0.2,
       body: (_) => HomePage.tabs[widget.index].child,
       secondaryBody: (_) => Container(color: const Color.fromARGB(255, 234, 158, 192)),
       smallSecondaryBody: AdaptiveScaffold.emptyBuilder,
