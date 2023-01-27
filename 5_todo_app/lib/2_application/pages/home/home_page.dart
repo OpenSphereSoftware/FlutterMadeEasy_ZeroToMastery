@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/2_application/core/page_route_config.dart';
+import 'package:todo_app/2_application/pages/overview/todo_overview.dart';
 import 'package:todo_app/2_application/pages/settings/settings_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,7 +23,7 @@ class HomePage extends StatefulWidget {
     PageRouteConfig(
       key: 'overview',
       icon: Icons.work_history_rounded,
-      child: Text('overview'),
+      child: TodoOverview(),
     ),
   ];
 
@@ -30,38 +32,26 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late final PageController _pageController;
-
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(
-      keepPage: true,
-      initialPage: widget.index,
-    );
   }
 
   @override
   void dispose() {
-    _pageController.dispose();
     super.dispose();
   }
 
   @override
   void didUpdateWidget(HomePage oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.index != widget.index) {
-      _pageController.animateToPage(
-        widget.index,
-        duration: const Duration(milliseconds: 200),
-        curve: Curves.ease,
-      );
-    }
+    if (oldWidget.index != widget.index) {}
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AdaptiveScaffold(
+      useDrawer: false,
       appBar: AppBar(
         actions: [
           IconButton(
@@ -71,23 +61,17 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: widget.index,
-        onDestinationSelected: (index) => _tap(context, index),
-        destinations: HomePage.tabs
-            .map((page) => NavigationDestination(
-                  icon: Icon(page.icon),
-                  label: page.key,
-                ))
-            .toList(),
-      ),
-      body: SafeArea(
-        top: false,
-        child: PageView(
-          controller: _pageController,
-          children: HomePage.tabs.map((page) => page.child).toList(),
-        ),
-      ),
+      selectedIndex: widget.index,
+      onSelectedIndexChange: (index) => _tap(context, index),
+      destinations: HomePage.tabs
+          .map((page) => NavigationDestination(
+                icon: Icon(page.icon),
+                label: page.key,
+              ))
+          .toList(),
+      body: (_) => HomePage.tabs[widget.index].child,
+      secondaryBody: (_) => Container(color: const Color.fromARGB(255, 234, 158, 192)),
+      smallSecondaryBody: AdaptiveScaffold.emptyBuilder,
     );
   }
 
