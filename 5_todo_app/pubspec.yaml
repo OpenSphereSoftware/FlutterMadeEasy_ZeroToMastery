@@ -16,6 +16,7 @@ dependencies:
   go_router: ^6.0.1
   flutter_adaptive_scaffold: ^0.1.0
   uuid: ^3.0.7
+  flutter_bloc: ^8.1.1
 
 dev_dependencies:
   flutter_test:

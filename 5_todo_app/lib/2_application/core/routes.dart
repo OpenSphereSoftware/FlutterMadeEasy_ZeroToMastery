@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:todo_app/1_domain/entities/unique_id.dart';
+import 'package:todo_app/2_application/pages/detail/todo_detail.dart';
 import 'package:todo_app/2_application/pages/home/home_page.dart';
 import 'package:todo_app/2_application/pages/settings/settings_page.dart';
 
@@ -29,6 +31,15 @@ final routes = GoRouter(
             return HomePage(
               key: state.pageKey,
               tab: state.params['tab']!,
+            );
+          },
+        ),
+        GoRoute(
+          path: '/home/overview/:todoId',
+          builder: (context, state) {
+            return TodoDetail(
+              key: state.pageKey,
+              id: UniqueID.fromUniqueString(state.params['todoId']!),
             );
           },
         ),
