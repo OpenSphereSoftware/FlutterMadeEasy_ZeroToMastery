@@ -38,14 +38,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  UniqueID? currentElement;
-
-  void selectTodo(UniqueID? selectedElement) {
-    setState(() {
-      currentElement = selectedElement;
-    });
-  }
-
   @override
   void initState() {
     super.initState();
