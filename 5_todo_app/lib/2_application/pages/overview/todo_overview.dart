@@ -8,14 +8,6 @@ class TodoOverview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO(Max): add loading cubit here
-    final List<Todo> todos = List.generate(
-        100,
-        (index) => Todo.empty().copyWith(
-              title: 'index $index',
-              color: TodoColor(
-                color: TodoColor.predefinedColors[index % 5],
-              ),
-            ));
 
     return ListView.builder(
       itemCount: todos.length,
