@@ -11,4 +11,13 @@ class NavigationTodoCubitCubit extends Cubit<NavigationTodoCubitState> {
   void selectedTodoItemChanged(UniqueID? selectedItem) {
     emit(NavigationTodoCubitInitial(selectedTodoItem: selectedItem));
   }
+
+  void breakpointChanged(bool showGrid) {
+    if (state.showGrid != showGrid) {
+      emit(NavigationTodoCubitInitial(
+        selectedTodoItem: state.selectedTodoItem,
+        showGrid: showGrid,
+      ));
+    }
+  }
 }

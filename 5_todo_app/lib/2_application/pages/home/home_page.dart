@@ -37,17 +37,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
+class _HomePageState extends State<HomePage> with ChangeNotifier {
   @override
   void didUpdateWidget(HomePage oldWidget) {
     super.didUpdateWidget(oldWidget);
@@ -58,38 +48,52 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return BlocProvider<NavigationTodoCubitCubit>(
       create: (context) => NavigationTodoCubitCubit(),
-      child: AdaptiveScaffold(
-        useDrawer: false,
-        appBar: AppBar(
-          actions: [
-            IconButton(
-              icon: Icon(SettingsPage.page.icon),
-              tooltip: SettingsPage.page.key,
-              onPressed: () => context.go('/home/${SettingsPage.page.key}'),
-            ),
-          ],
+      child: BlocListener<NavigationTodoCubitCubit, NavigationTodoCubitState>(
+        listenWhen: (previous, current) => previous.showGrid != current.showGrid,
+        listener: (context, state) {
+          if (context.canPop() && (state.showGrid ?? false)) {
+            context.pop();
+          }
+        },
+        child: AdaptiveScaffold(
+          useDrawer: false,
+          appBar: AppBar(
+            actions: [
+              IconButton(
+                icon: Icon(SettingsPage.page.icon),
+                tooltip: SettingsPage.page.key,
+                onPressed: () => context.go('/home/${SettingsPage.page.key}'),
+              ),
+            ],
+          ),
+          selectedIndex: widget.index,
+          onSelectedIndexChange: (index) => _tap(context, index),
+          bodyRatio: 0.3,
+          destinations: HomePage.tabs
+              .map((page) => NavigationDestination(
+                    icon: Icon(page.icon),
+                    label: page.key,
+                  ))
+              .toList(),
+          body: (_) => HomePage.tabs[widget.index].child,
+          secondaryBody: widget.index != 1
+              ? AdaptiveScaffold.emptyBuilder
+              : (_) => BlocBuilder<NavigationTodoCubitCubit, NavigationTodoCubitState>(
+                    builder: (context, state) {
+                      // notify cubit to rebuild the screen without any errors
+                      final isGrid = Breakpoints.mediumAndUp.isActive(context);
+                      context.read<NavigationTodoCubitCubit>().breakpointChanged(isGrid);
+
+                      final currentItem = state.selectedTodoItem;
+                      if (currentItem != null) {
+                        return TodoDetail(id: currentItem);
+                      } else {
+                        return const Placeholder();
+                      }
+                    },
+                  ),
+          smallSecondaryBody: AdaptiveScaffold.emptyBuilder,
         ),
-        selectedIndex: widget.index,
-        onSelectedIndexChange: (index) => _tap(context, index),
-        destinations: HomePage.tabs
-            .map((page) => NavigationDestination(
-                  icon: Icon(page.icon),
-                  label: page.key,
-                ))
-            .toList(),
-        bodyRatio: 0.2,
-        body: (_) => HomePage.tabs[widget.index].child,
-        secondaryBody: (_) => BlocBuilder<NavigationTodoCubitCubit, NavigationTodoCubitState>(
-          builder: (context, state) {
-            final currentItem = state.selectedTodoItem;
-            if (currentItem != null) {
-              return TodoDetail(id: currentItem);
-            } else {
-              return const Placeholder();
-            }
-          },
-        ),
-        smallSecondaryBody: AdaptiveScaffold.emptyBuilder,
       ),
     );
   }
