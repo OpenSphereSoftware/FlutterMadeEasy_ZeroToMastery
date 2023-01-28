@@ -6,7 +6,9 @@ import 'package:todo_app/2_application/pages/home/bloc/cubit/navigation_todo_cub
 import 'package:todo_app/main.dart';
 
 class TodoOverview extends StatelessWidget {
-  const TodoOverview({super.key});
+  const TodoOverview({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,21 +18,27 @@ class TodoOverview extends StatelessWidget {
       itemCount: todos.length,
       itemBuilder: (context, index) {
         final item = todos[index];
-        return GestureDetector(
-          // TODO(Max): use a callback here
-          onTap: () {
-            context.read<NavigationTodoCubitCubit>().selectedTodoItemChanged(item.id);
+        return BlocBuilder<NavigationTodoCubitCubit, NavigationTodoCubitState>(
+          buildWhen: (previous, current) => previous.selectedTodoItem != current.selectedTodoItem,
+          builder: (context, state) {
+            final colorScheme = Theme.of(context).colorScheme;
+            return Card(
+              // TODO(Max): check if this is good like this
+              color: state.selectedTodoItem == item.id ? colorScheme.surfaceVariant : colorScheme.surface,
+              child: ListTile(
+                iconColor: item.color.color,
+                onTap: () {
+                  context.read<NavigationTodoCubitCubit>().selectedTodoItemChanged(item.id);
 
-            if (!Breakpoints.mediumAndUp.isActive(context)) {
-              context.push('/home/overview/${item.id.value}');
-            }
+                  if (!Breakpoints.mediumAndUp.isActive(context)) {
+                    context.push('/home/overview/${item.id.value}');
+                  }
+                },
+                leading: const Icon(Icons.circle),
+                title: Text(item.title),
+              ),
+            );
           },
-          child: Card(
-            color: item.color.color,
-            child: ListTile(
-              title: Text(item.title),
-            ),
-          ),
         );
       },
     );
