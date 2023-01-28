@@ -37,9 +37,23 @@ final routes = GoRouter(
         GoRoute(
           path: '/home/overview/:todoId',
           builder: (context, state) {
-            return TodoDetail(
-              key: state.pageKey,
-              id: UniqueID.fromUniqueString(state.params['todoId']!),
+            return Scaffold(
+              appBar: AppBar(
+                leading: BackButton(
+                  onPressed: () {
+                    if (context.canPop()) {
+                      context.pop();
+                    } else {
+                      // TODO(Max): use same default route everywhere
+                      context.go('/home/overview');
+                    }
+                  },
+                ),
+              ),
+              body: TodoDetail(
+                key: state.pageKey,
+                id: UniqueID.fromUniqueString(state.params['todoId']!),
+              ),
             );
           },
         ),

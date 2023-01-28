@@ -22,9 +22,10 @@ class TodoDetail extends StatelessWidget {
     // TODO(Max): load correct todo here
     final todo = todos.firstWhere((element) => element.id.value == id.value);
 
-    return Scaffold(
-      backgroundColor: todo.color.color,
-      body: Column(
+    return Container(
+      width: double.infinity,
+      color: todo.color.color,
+      child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
           Text(todo.title),
