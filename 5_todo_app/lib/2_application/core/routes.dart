@@ -39,6 +39,7 @@ final routes = GoRouter(
           builder: (context, state) {
             return Scaffold(
               appBar: AppBar(
+                title: const Text('Details'),
                 leading: BackButton(
                   onPressed: () {
                     if (context.canPop()) {

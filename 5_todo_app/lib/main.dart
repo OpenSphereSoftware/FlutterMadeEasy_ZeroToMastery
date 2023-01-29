@@ -12,6 +12,7 @@ final List<Todo> todos = List.generate(
     100,
     (index) => Todo.empty().copyWith(
           title: 'index $index',
+          body: 'body: $index, very long and so',
           color: TodoColor(
             color: TodoColor.predefinedColors[index % 5],
           ),

@@ -22,15 +22,46 @@ class TodoDetail extends StatelessWidget {
     // TODO(Max): load correct todo here
     final todo = todos.firstWhere((element) => element.id.value == id.value);
 
-    return Container(
-      width: double.infinity,
-      color: todo.color.color,
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Text(todo.title),
-          Text(todo.body),
-        ],
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Stack(
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        todo.title,
+                        style: Theme.of(context).textTheme.displaySmall,
+                      ),
+                    ),
+                    const Spacer(),
+                    Icon(
+                      Icons.circle,
+                      color: todo.color.color,
+                    ),
+                  ],
+                ),
+                Expanded(
+                  child: Text(todo.body),
+                ),
+              ],
+            ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: FloatingActionButton(
+                onPressed: () => null,
+                child: Icon(
+                  Icons.edit,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
