@@ -22,21 +22,21 @@ class TodoOverview extends StatelessWidget {
           buildWhen: (previous, current) => previous.selectedTodoItem != current.selectedTodoItem,
           builder: (context, state) {
             final colorScheme = Theme.of(context).colorScheme;
-            return Card(
-              // TODO(Max): check if this is good like this
-              color: state.selectedTodoItem == item.id ? colorScheme.surfaceVariant : colorScheme.surface,
-              child: ListTile(
-                iconColor: item.color.color,
-                onTap: () {
-                  context.read<NavigationTodoCubitCubit>().selectedTodoItemChanged(item.id);
+            return ListTile(
+              selected: state.selectedTodoItem == item.id,
+              tileColor: colorScheme.surface,
+              selectedTileColor: colorScheme.surfaceVariant,
+              iconColor: item.color.color,
+              selectedColor: item.color.color,
+              onTap: () {
+                context.read<NavigationTodoCubitCubit>().selectedTodoItemChanged(item.id);
 
-                  if (!Breakpoints.mediumAndUp.isActive(context)) {
-                    context.push('/home/overview/${item.id.value}');
-                  }
-                },
-                leading: const Icon(Icons.circle),
-                title: Text(item.title),
-              ),
+                if (!Breakpoints.mediumAndUp.isActive(context)) {
+                  context.push('/home/overview/${item.id.value}');
+                }
+              },
+              leading: const Icon(Icons.circle),
+              title: Text(item.title),
             );
           },
         );
