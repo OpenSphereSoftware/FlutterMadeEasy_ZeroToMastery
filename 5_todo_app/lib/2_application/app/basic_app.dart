@@ -13,18 +13,19 @@ class BasicApp extends StatelessWidget {
         ...GlobalMaterialLocalizations.delegates,
         GlobalWidgetsLocalizations.delegate,
       ],
-      darkTheme: ThemeData.from(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.teal,
-          brightness: Brightness.dark,
-        ),
-      ),
+      themeMode: ThemeMode.light,
       theme: ThemeData.from(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.teal,
+          seedColor: Colors.lime,
           brightness: Brightness.light,
+        ),
+      ),
+      darkTheme: ThemeData.from(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.purple,
+          brightness: Brightness.dark,
         ),
       ),
       routerConfig: routes,
