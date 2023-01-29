@@ -67,12 +67,28 @@ class _HomePageState extends State<HomePage> with ChangeNotifier {
               bodyRatio: 0.3,
               primaryNavigation: SlotLayout(
                 config: <Breakpoint, SlotLayoutConfig>{
-                  Breakpoints.mediumAndUp: SlotLayout.from(
+                  Breakpoints.medium: SlotLayout.from(
                     inAnimation: AdaptiveScaffold.leftOutIn,
                     key: const Key('primary-navigation-medium'),
                     builder: (_) => AdaptiveScaffold.standardNavigationRail(
+                      leading: SmallTodoIcon(
+                        key: Key('add-todo-button'),
+                      ),
                       selectedIndex: widget.index,
-                      extended: Breakpoints.large.isActive(context),
+                      extended: false,
+                      onDestinationSelected: (index) => _tap(context, index),
+                      destinations: destinations.map((_) => AdaptiveScaffold.toRailDestination(_)).toList(),
+                    ),
+                  ),
+                  Breakpoints.large: SlotLayout.from(
+                    inAnimation: AdaptiveScaffold.leftInOut,
+                    key: const Key('primary-navigation-large'),
+                    builder: (_) => AdaptiveScaffold.standardNavigationRail(
+                      leading: LargeTodoIcon(
+                        key: Key('add-todo-button'),
+                      ),
+                      selectedIndex: widget.index,
+                      extended: true,
                       onDestinationSelected: (index) => _tap(context, index),
                       destinations: destinations.map((_) => AdaptiveScaffold.toRailDestination(_)).toList(),
                     ),

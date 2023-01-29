@@ -55,7 +55,7 @@ class TodoDetail extends StatelessWidget {
               alignment: Alignment.bottomRight,
               child: FloatingActionButton(
                 onPressed: () => null,
-                child: Icon(
+                child: const Icon(
                   Icons.edit,
                 ),
               ),
