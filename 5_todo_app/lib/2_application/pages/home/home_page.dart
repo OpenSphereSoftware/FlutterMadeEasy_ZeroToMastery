@@ -7,6 +7,7 @@ import 'package:todo_app/2_application/core/page_route_config.dart';
 import 'package:todo_app/2_application/pages/detail/todo_detail.dart';
 import 'package:todo_app/2_application/pages/home/bloc/cubit/navigation_todo_cubit_cubit.dart';
 import 'package:todo_app/2_application/pages/overview/todo_overview.dart';
+import 'package:todo_app/2_application/pages/overview/widgets/add_todo_button.dart';
 
 typedef TodoSelectedCallback = void Function(UniqueID?);
 
@@ -71,7 +72,7 @@ class _HomePageState extends State<HomePage> with ChangeNotifier {
                     inAnimation: AdaptiveScaffold.leftOutIn,
                     key: const Key('primary-navigation-medium'),
                     builder: (_) => AdaptiveScaffold.standardNavigationRail(
-                      leading: SmallTodoIcon(
+                      leading: const AddTodoButtonSmall(
                         key: Key('add-todo-button'),
                       ),
                       selectedIndex: widget.index,
@@ -81,10 +82,10 @@ class _HomePageState extends State<HomePage> with ChangeNotifier {
                     ),
                   ),
                   Breakpoints.large: SlotLayout.from(
-                    inAnimation: AdaptiveScaffold.leftInOut,
+                    inAnimation: AdaptiveScaffold.leftOutIn,
                     key: const Key('primary-navigation-large'),
                     builder: (_) => AdaptiveScaffold.standardNavigationRail(
-                      leading: LargeTodoIcon(
+                      leading: const AddTodoButtonLarge(
                         key: Key('add-todo-button'),
                       ),
                       selectedIndex: widget.index,
