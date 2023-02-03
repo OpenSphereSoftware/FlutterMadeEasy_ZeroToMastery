@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_app/1_domain/entities/unique_id.dart';
 import 'package:todo_app/1_domain/use_cases/load_todo_entry.dart';
 import 'package:todo_app/1_domain/use_cases/update_todo_entry.dart';
-import 'package:todo_app/2_application/widgets/bloc/todo_entry_item_cubit.dart';
-import 'package:todo_app/2_application/widgets/view_states/todo_entry_item_error.dart';
-import 'package:todo_app/2_application/widgets/view_states/todo_entry_item_loaded.dart';
-import 'package:todo_app/2_application/widgets/view_states/todo_entry_item_loading.dart';
+import 'package:todo_app/2_application/widgets/todo_entry_item/bloc/todo_entry_item_cubit.dart';
+import 'package:todo_app/2_application/widgets/todo_entry_item/view_states/todo_entry_item_error.dart';
+import 'package:todo_app/2_application/widgets/todo_entry_item/view_states/todo_entry_item_loaded.dart';
+import 'package:todo_app/2_application/widgets/todo_entry_item/view_states/todo_entry_item_loading.dart';
 
 class ToDoEntryItemProvider extends StatelessWidget {
   const ToDoEntryItemProvider({
