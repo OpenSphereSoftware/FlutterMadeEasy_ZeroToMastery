@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:todo_app/2_application/pages/home/bloc/cubit/navigation_todo_cubit_cubit.dart';
+import 'package:todo_app/2_application/pages/home/bloc/navigation_todo_cubit_cubit.dart';
 import 'package:todo_app/2_application/pages/overview/widgets/add_todo_button.dart';
 import 'package:todo_app/main.dart';
 
