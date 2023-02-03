@@ -37,12 +37,24 @@ class ToDoRepositoryMock implements ToDoRepository {
   }
 
   @override
-  Future<Either<Failure, ToDoEntry>> updateToDoEntry(UniqueID entryId ) {
+  Future<Either<Failure, ToDoEntry>> updateToDoEntry(UniqueID entryId) {
     final index = todoEntries.indexWhere((element) => element.id == entryId);
     final updatedEntry = todoEntries[index].copyWith(isDone: !todoEntries[index].isDone);
     todoEntries[index] = updatedEntry;
 
     return Future.delayed(const Duration(milliseconds: 250), () => Right(updatedEntry));
+  }
+
+  @override
+  Future<Either<Failure, bool>> addToDoCollection(ToDoCollection collection) {
+    todoCollections.add(collection);
+    return Future.delayed(const Duration(milliseconds: 250), () => const Right(true));
+  }
+
+  @override
+  Future<Either<Failure, bool>> addToDoEntry(ToDoEntry entry) {
+    todoEntries.add(entry);
+    return Future.delayed(const Duration(milliseconds: 250), () => const Right(true));
   }
 
   final List<ToDoCollection> todoCollections = List.generate(
