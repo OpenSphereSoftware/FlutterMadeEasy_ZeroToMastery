@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/1_domain/entities/unique_id.dart';
+import 'package:todo_app/2_application/pages/create_todo_collection/create_todo_collection.dart';
 import 'package:todo_app/2_application/pages/detail/todo_detail.dart';
 import 'package:todo_app/2_application/pages/home/home_page.dart';
 import 'package:todo_app/2_application/pages/settings/settings_page.dart';
@@ -31,6 +32,27 @@ final routes = GoRouter(
             return HomePage(
               key: state.pageKey,
               tab: state.params['tab']!,
+            );
+          },
+        ),
+        GoRoute(
+          path: '/home/overview/${CreateToDoCollection.page.key}',
+          builder: (context, state) {
+            return Scaffold(
+              appBar: AppBar(
+                title: const Text('Create Collection'),
+                leading: BackButton(
+                  onPressed: () {
+                    if (context.canPop()) {
+                      context.pop();
+                    } else {
+                      // TODO(Max): use same default route everywhere
+                      context.go('/home/overview');
+                    }
+                  },
+                ),
+              ),
+              body: const CreateToDoCollectionProvider(),
             );
           },
         ),

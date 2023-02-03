@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/1_domain/entities/todo_collection.dart';
 import 'package:todo_app/2_application/pages/home/bloc/navigation_todo_cubit_cubit.dart';
-import 'package:todo_app/2_application/pages/overview/widgets/add_todo_button.dart';
+import 'package:todo_app/2_application/pages/overview/widgets/add_collection_button.dart';
 
 /// this class needs a provided NavigationTodoCubitCubit
 class ToDoOverviewLoaded extends StatelessWidget {
@@ -53,7 +53,7 @@ class ToDoOverviewLoaded extends StatelessWidget {
                 alignment: Alignment.bottomRight,
                 child: Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: AddTodoButtonSmall(
+                  child: AddCollectionButton(
                     key: Key('add-todo-button'),
                   ),
                 ),

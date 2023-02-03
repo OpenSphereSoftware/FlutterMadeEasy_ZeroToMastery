@@ -7,7 +7,7 @@ import 'package:todo_app/2_application/core/page_route_config.dart';
 import 'package:todo_app/2_application/pages/detail/todo_detail.dart';
 import 'package:todo_app/2_application/pages/home/bloc/navigation_todo_cubit_cubit.dart';
 import 'package:todo_app/2_application/pages/overview/todo_overview.dart';
-import 'package:todo_app/2_application/pages/overview/widgets/add_todo_button.dart';
+import 'package:todo_app/2_application/pages/overview/widgets/add_collection_button.dart';
 
 typedef TodoSelectedCallback = void Function(UniqueID?);
 
@@ -38,6 +38,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with ChangeNotifier {
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   void didUpdateWidget(HomePage oldWidget) {
     super.didUpdateWidget(oldWidget);
@@ -72,8 +77,9 @@ class _HomePageState extends State<HomePage> with ChangeNotifier {
                     inAnimation: AdaptiveScaffold.leftOutIn,
                     key: const Key('primary-navigation-medium'),
                     builder: (_) => AdaptiveScaffold.standardNavigationRail(
-                      leading: const AddTodoButtonSmall(
+                      leading: const AddCollectionButton(
                         key: Key('add-todo-button'),
+                        isLarge: true,
                       ),
                       selectedIndex: widget.index,
                       extended: false,
@@ -85,8 +91,9 @@ class _HomePageState extends State<HomePage> with ChangeNotifier {
                     inAnimation: AdaptiveScaffold.leftOutIn,
                     key: const Key('primary-navigation-large'),
                     builder: (_) => AdaptiveScaffold.standardNavigationRail(
-                      leading: const AddTodoButtonLarge(
+                      leading: const AddCollectionButton(
                         key: Key('add-todo-button'),
+                        isLarge: true,
                       ),
                       selectedIndex: widget.index,
                       extended: true,
