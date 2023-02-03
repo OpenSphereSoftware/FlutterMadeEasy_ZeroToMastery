@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:todo_app/1_domain/entities/unique_id.dart';
 import 'package:todo_app/2_application/core/page_route_config.dart';
 import 'package:todo_app/2_application/pages/detail/todo_detail.dart';
-import 'package:todo_app/2_application/pages/home/bloc/cubit/navigation_todo_cubit_cubit.dart';
+import 'package:todo_app/2_application/pages/home/bloc/navigation_todo_cubit_cubit.dart';
 import 'package:todo_app/2_application/pages/overview/todo_overview.dart';
 import 'package:todo_app/2_application/pages/overview/widgets/add_todo_button.dart';
 
