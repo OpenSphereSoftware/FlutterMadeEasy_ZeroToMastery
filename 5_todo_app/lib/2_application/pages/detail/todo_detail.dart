@@ -20,41 +20,29 @@ class TodoDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO(Max): load correct todo here
-    final todo = todos.firstWhere((element) => element.id.value == id.value);
 
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Stack(
           children: [
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        todo.title,
-                        style: Theme.of(context).textTheme.displaySmall,
-                      ),
-                    ),
-                    const Spacer(),
-                    Icon(
-                      Icons.circle,
-                      color: todo.color.color,
-                    ),
-                  ],
-                ),
-                Expanded(
-                  child: Text(todo.body),
-                ),
-              ],
+            ListView.builder(
+              itemCount: todo.length,
+              itemBuilder: (context, index) {
+                // TODO load all entries here
+                final todoDetail = todo[index];
+
+                return CheckboxListTile(
+                  title: Text(todoDetail.description),
+                  value: todoDetail.isDone,
+                  onChanged: (value) => debugPrint('${todoDetail.id}'),
+                );
+              },
             ),
             Align(
               alignment: Alignment.bottomRight,
               child: FloatingActionButton(
-                onPressed: () => null,
+                onPressed: () => debugPrint('add entry'),
                 child: const Icon(
                   Icons.edit,
                 ),

@@ -12,4 +12,8 @@ class UniqueID {
   factory UniqueID.fromUniqueString(String uniqueID) {
     return UniqueID._(uniqueID);
   }
+  @override
+  String toString() {
+    return value;
+  }
 }
