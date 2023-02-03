@@ -36,6 +36,15 @@ class ToDoRepositoryMock implements ToDoRepository {
     }
   }
 
+  @override
+  Future<Either<Failure, ToDoEntry>> updateToDoEntry(UniqueID entryId ) {
+    final index = todoEntries.indexWhere((element) => element.id == entryId);
+    final updatedEntry = todoEntries[index].copyWith(isDone: !todoEntries[index].isDone);
+    todoEntries[index] = updatedEntry;
+
+    return Future.delayed(const Duration(milliseconds: 250), () => Right(updatedEntry));
+  }
+
   final List<ToDoCollection> todoCollections = List.generate(
     100,
     (index) => ToDoCollection.empty().copyWith(

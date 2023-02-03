@@ -9,5 +9,8 @@ abstract class ToDoRepository {
 
   Future<Either<Failure, ToDoEntry>> getToDoEntry(UniqueID entryId);
 
+  Future<Either<Failure, ToDoEntry>> updateToDoEntry(UniqueID entryId);
+
   Future<Either<Failure, List<UniqueID>>> getToDoEntryIds(UniqueID collectionId);
+
 }

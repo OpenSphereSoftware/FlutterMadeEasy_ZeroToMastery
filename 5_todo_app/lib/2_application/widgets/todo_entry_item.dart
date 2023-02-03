@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_app/1_domain/entities/unique_id.dart';
 import 'package:todo_app/1_domain/use_cases/load_todo_entry.dart';
+import 'package:todo_app/1_domain/use_cases/update_todo_entry.dart';
 import 'package:todo_app/2_application/widgets/bloc/todo_entry_item_cubit.dart';
 import 'package:todo_app/2_application/widgets/view_states/todo_entry_item_error.dart';
 import 'package:todo_app/2_application/widgets/view_states/todo_entry_item_loaded.dart';
@@ -20,6 +21,9 @@ class ToDoEntryItemProvider extends StatelessWidget {
     return BlocProvider(
       create: (context) => ToDoEntryItemCubit(
         entryId: entryId,
+        updateToDoEntry: UpdateToDoEntry(
+          toDoRepository: RepositoryProvider.of(context),
+        ),
         loadToDoEntry: LoadToDoEntry(
           toDoRepository: RepositoryProvider.of(context),
         ),
@@ -47,6 +51,9 @@ class ToDoEntryItem extends StatelessWidget {
           return const ToDoEntryItemLoading();
         } else if (state is ToDoEntryItemLoadedState) {
           return ToDoEntryItemLoaded(
+            onChanged: (value) {
+              context.read<ToDoEntryItemCubit>().updateStateOfEntry();
+            },
             entry: state.toDoEntry,
           );
         }
