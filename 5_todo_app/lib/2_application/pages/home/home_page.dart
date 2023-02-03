@@ -29,7 +29,7 @@ class HomePage extends StatefulWidget {
     PageRouteConfig(
       key: 'overview',
       icon: Icons.work_history_rounded,
-      child: TodoOverview(),
+      child: ToDoOverviewProvider(), // This is important, otherwise we have no cubit to load our data
     ),
   ];
 
@@ -120,7 +120,10 @@ class _HomePageState extends State<HomePage> with ChangeNotifier {
 
                                 final currentItem = state.selectedTodoItem;
                                 if (currentItem != null) {
-                                  return TodoDetail(id: currentItem);
+                                  return ToDoDetailProvider(
+                                    collectionId: currentItem,
+                                    key: Key(currentItem.value),
+                                  );
                                 } else {
                                   return const Placeholder();
                                 }

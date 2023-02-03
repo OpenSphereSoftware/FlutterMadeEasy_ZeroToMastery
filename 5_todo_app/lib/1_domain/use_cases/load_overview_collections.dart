@@ -10,7 +10,7 @@ class LoadOverviewCollections implements UseCase<void, NoParams> {
   final ToDoRepository toDoRepository;
 
   @override
-  Future<Either<Failure, List<TodoCollection>>> call(NoParams params) async {
+  Future<Either<Failure, List<ToDoCollection>>> call(NoParams params) async {
     try {
       final loadedCollection = toDoRepository.getToDoCollections();
 

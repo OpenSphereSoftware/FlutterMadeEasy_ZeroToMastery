@@ -5,9 +5,9 @@ import 'package:todo_app/1_domain/entities/unique_id.dart';
 import 'package:todo_app/1_domain/failures/failures.dart';
 
 abstract class ToDoRepository {
-  Future<Either<Failure, List<TodoCollection>>> getToDoCollections();
+  Future<Either<Failure, List<ToDoCollection>>> getToDoCollections();
 
-  Future<Either<Failure, TodoEntry>> getToDoEntry();
+  Future<Either<Failure, TodoEntry>> getToDoEntry(UniqueID entryId);
 
-  Future<Either<Failure, List<UniqueID>>> getToDoEntryIds();
+  Future<Either<Failure, List<UniqueID>>> getToDoEntryIds(UniqueID collectionId);
 }

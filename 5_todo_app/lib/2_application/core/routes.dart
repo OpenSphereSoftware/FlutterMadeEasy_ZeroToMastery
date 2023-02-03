@@ -51,9 +51,9 @@ final routes = GoRouter(
                   },
                 ),
               ),
-              body: TodoDetail(
+              body: ToDoDetailProvider(
                 key: state.pageKey,
-                id: UniqueID.fromUniqueString(state.params['todoId']!),
+                collectionId: UniqueID.fromUniqueString(state.params['todoId']!),
               ),
             );
           },

@@ -1,13 +1,13 @@
 import 'package:todo_app/1_domain/entities/todo_color.dart';
 import 'package:todo_app/1_domain/entities/unique_id.dart';
 
-class TodoCollection {
+class ToDoCollection {
   final UniqueID id;
   final String title;
   final TodoColor color;
 
-  factory TodoCollection.empty() {
-    return TodoCollection(
+  factory ToDoCollection.empty() {
+    return ToDoCollection(
       id: UniqueID(),
       title: "",
       color: TodoColor(
@@ -16,17 +16,17 @@ class TodoCollection {
     );
   }
 
-  TodoCollection({
+  ToDoCollection({
     required this.id,
     required this.title,
     required this.color,
   });
 
-  TodoCollection copyWith({
+  ToDoCollection copyWith({
     String? title,
     TodoColor? color,
   }) {
-    return TodoCollection(
+    return ToDoCollection(
       id: id,
       color: color ?? this.color,
       title: title ?? this.title,

@@ -12,7 +12,7 @@ class LoadToDoEntry implements UseCase<void, IdParams> {
   @override
   Future<Either<Failure, TodoEntry>> call(IdParams params) async {
     try {
-      final loadedEntry = toDoRepository.getToDoEntry();
+      final loadedEntry = toDoRepository.getToDoEntry(params.id);
 
       return loadedEntry.fold(
         (left) => Left(left),

@@ -1,60 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:todo_app/2_application/pages/home/bloc/navigation_todo_cubit_cubit.dart';
-import 'package:todo_app/2_application/pages/overview/widgets/add_todo_button.dart';
-import 'package:todo_app/main.dart';
+import 'package:todo_app/1_domain/use_cases/load_overview_collections.dart';
+import 'package:todo_app/2_application/pages/overview/bloc/todo_overview_cubit.dart';
+import 'package:todo_app/2_application/pages/overview/view_states/todo_overview_error.dart';
+import 'package:todo_app/2_application/pages/overview/view_states/todo_overview_loaded.dart';
+import 'package:todo_app/2_application/pages/overview/view_states/todo_overview_loading.dart';
 
-class TodoOverview extends StatelessWidget {
-  const TodoOverview({super.key});
+class ToDoOverviewProvider extends StatelessWidget {
+  const ToDoOverviewProvider({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // TODO(Max): add loading cubit here
-
-    return Stack(
-      children: [
-        ListView.builder(
-          itemCount: todos.length,
-          itemBuilder: (context, index) {
-            final item = todos[index];
-            return BlocBuilder<NavigationTodoCubitCubit, NavigationTodoCubitState>(
-              buildWhen: (previous, current) => previous.selectedTodoItem != current.selectedTodoItem,
-              builder: (context, state) {
-                final colorScheme = Theme.of(context).colorScheme;
-                return ListTile(
-                  selected: state.selectedTodoItem == item.id,
-                  tileColor: colorScheme.surface,
-                  selectedTileColor: colorScheme.surfaceVariant,
-                  iconColor: item.color.color,
-                  selectedColor: item.color.color,
-                  onTap: () {
-                    context.read<NavigationTodoCubitCubit>().selectedTodoItemChanged(item.id);
-
-                    if (!Breakpoints.mediumAndUp.isActive(context)) {
-                      context.push('/home/overview/${item.id.value}');
-                    }
-                  },
-                  leading: const Icon(Icons.circle),
-                  title: Text(item.title),
-                );
-              },
-            );
-          },
+    return BlocProvider(
+      create: (context) => ToDoOverviewCubit(
+        loadOverviewCollections: LoadOverviewCollections(
+          toDoRepository: RepositoryProvider.of(context),
         ),
-        Breakpoints.mediumAndUp.isActive(context)
-            ? const SizedBox.shrink()
-            : const Align(
-                alignment: Alignment.bottomRight,
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: AddTodoButtonSmall(
-                    key: Key('add-todo-button'),
-                  ),
-                ),
-              ),
-      ],
+      )..fetchToDoOverviewItems(),
+      child: const ToDoOverview(),
+    );
+  }
+}
+
+class ToDoOverview extends StatelessWidget {
+  const ToDoOverview({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ToDoOverviewCubit, ToDoOverviewState>(
+      builder: (context, state) {
+        if (state is ToDoOverviewLoadingState) {
+          return const ToDoOverviewLoading();
+        } else if (state is ToDoOverviewLoadedState) {
+          return ToDoOverviewLoaded(
+            collections: state.collections,
+          );
+        }
+        return const ToDoOverviewError();
+      },
     );
   }
 }
