@@ -1,29 +1,29 @@
 import 'package:todo_app/1_domain/entities/unique_id.dart';
 
-class TodoEntry {
+class ToDoEntry {
   final String description;
   final bool isDone;
   final UniqueID id;
 
-  const TodoEntry({
+  const ToDoEntry({
     required this.id,
     required this.description,
     required this.isDone,
   });
 
-  factory TodoEntry.empty() {
-    return TodoEntry(
+  factory ToDoEntry.empty() {
+    return ToDoEntry(
       id: UniqueID(),
       description: "",
       isDone: false,
     );
   }
 
-  TodoEntry copyWith({
+  ToDoEntry copyWith({
     String? description,
     bool? isDone,
   }) {
-    return TodoEntry(
+    return ToDoEntry(
       id: id,
       description: description ?? this.description,
       isDone: isDone ?? this.isDone,

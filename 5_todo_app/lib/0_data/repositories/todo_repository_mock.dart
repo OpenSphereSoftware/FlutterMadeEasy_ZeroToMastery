@@ -14,9 +14,9 @@ class ToDoRepositoryMock implements ToDoRepository {
   }
 
   @override
-  Future<Either<Failure, TodoEntry>> getToDoEntry(UniqueID entryId) {
+  Future<Either<Failure, ToDoEntry>> getToDoEntry(UniqueID entryId) {
     try {
-      final list = List<TodoEntry>.from(todoEntries);
+      final list = List<ToDoEntry>.from(todoEntries);
       final item = list.firstWhere((element) => element.id == entryId);
       return Future.delayed(const Duration(milliseconds: 250), () => Right(item));
     } on Exception catch (e) {
@@ -46,9 +46,9 @@ class ToDoRepositoryMock implements ToDoRepository {
     ),
   );
 
-  final List<TodoEntry> todoEntries = List.generate(
+  final List<ToDoEntry> todoEntries = List.generate(
     100,
-    (index) => TodoEntry(
+    (index) => ToDoEntry(
       id: UniqueID.fromUniqueString(index.toString()),
       description: 'description $index',
       isDone: false,

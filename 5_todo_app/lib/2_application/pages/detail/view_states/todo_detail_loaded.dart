@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/1_domain/entities/unique_id.dart';
+import 'package:todo_app/2_application/widgets/todo_entry_item.dart';
 
 class ToDoDetailLoaded extends StatelessWidget {
   const ToDoDetailLoaded({
@@ -19,11 +20,8 @@ class ToDoDetailLoaded extends StatelessWidget {
             ListView.builder(
               itemCount: entryIds.length,
               itemBuilder: (context, index) {
-                // TODO add own widget here
-                return CheckboxListTile(
-                  title: Text('todoDetail.description : ${entryIds[index].value}}'),
-                  value: false, //todoDetail.isDone,
-                  onChanged: (value) => debugPrint('TODO needs to be implemented'),
+                return ToDoEntryItemProvider(
+                  entryId: entryIds[index],
                 );
               },
             ),

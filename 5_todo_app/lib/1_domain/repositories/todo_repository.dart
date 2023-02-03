@@ -7,7 +7,7 @@ import 'package:todo_app/1_domain/failures/failures.dart';
 abstract class ToDoRepository {
   Future<Either<Failure, List<ToDoCollection>>> getToDoCollections();
 
-  Future<Either<Failure, TodoEntry>> getToDoEntry(UniqueID entryId);
+  Future<Either<Failure, ToDoEntry>> getToDoEntry(UniqueID entryId);
 
   Future<Either<Failure, List<UniqueID>>> getToDoEntryIds(UniqueID collectionId);
 }
