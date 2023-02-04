@@ -10,7 +10,7 @@ class CreateToDoCollectionProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => CreateToDoCollectionCubit(
-        toDoRepository: RepositoryProvider.of(context),
+        addToDoCollection: RepositoryProvider.of(context),
       ),
       child: const CreateToDoCollection(),
     );

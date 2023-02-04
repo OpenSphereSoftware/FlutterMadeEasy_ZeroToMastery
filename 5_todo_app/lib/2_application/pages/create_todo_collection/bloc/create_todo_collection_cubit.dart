@@ -2,16 +2,17 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_app/1_domain/entities/todo_collection.dart';
-import 'package:todo_app/1_domain/repositories/todo_repository.dart';
+import 'package:todo_app/1_domain/use_cases/add_todo_collection.dart';
+import 'package:todo_app/core/use_case/use_case.dart';
 
 part 'create_todo_collection_state.dart';
 
 class CreateToDoCollectionCubit extends Cubit<CreateToDoCollectionState> {
   CreateToDoCollectionCubit({
-    required this.toDoRepository,
+    required this.addToDoCollection,
   }) : super(const CreateToDoCollectionState());
 
-  final ToDoRepository toDoRepository;
+  final AddToDoCollection addToDoCollection;
 
   void titleChanged(String title) {
     emit(state.copyWith(title: title));
@@ -24,6 +25,6 @@ class CreateToDoCollectionCubit extends Cubit<CreateToDoCollectionState> {
   void submit() {
     emit(state.copyWith(isSubmitting: true));
 
-    toDoRepository.addToDoCollection(ToDoCollection.empty().copyWith(title: state.title));
+    addToDoCollection.call(ToDoCollectionParams(collection: ToDoCollection.empty().copyWith(title: state.title)));
   }
 }
