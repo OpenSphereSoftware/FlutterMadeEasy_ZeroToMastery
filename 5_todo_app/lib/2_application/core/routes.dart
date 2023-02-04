@@ -52,7 +52,7 @@ final routes = GoRouter(
                   },
                 ),
               ),
-              body: const CreateToDoCollectionProvider(),
+              body: const SafeArea(child: CreateToDoCollectionProvider()),
             );
           },
         ),

@@ -35,42 +35,46 @@ class _CreateToDoCollectionState extends State<CreateToDoCollection> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        children: [
-          TextFormField(
-            validator: (titleValue) {
-              if (titleValue == null || titleValue.isEmpty) {
-                return 'Please enter a title';
-              }
-              return null;
-            },
-            onChanged: (titleValue) {
-              context.read<CreateToDoCollectionCubit>().titleChanged(titleValue);
-            },
-            decoration: const InputDecoration(
-              labelText: 'Title',
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Form(
+        key: _formKey,
+        child: Column(
+          children: [
+            TextFormField(
+              validator: (titleValue) {
+                if (titleValue == null || titleValue.isEmpty) {
+                  return 'Please enter a title';
+                }
+                return null;
+              },
+              onChanged: (titleValue) {
+                context.read<CreateToDoCollectionCubit>().titleChanged(titleValue);
+              },
+              decoration: const InputDecoration(
+                labelText: 'Title',
+              ),
             ),
-          ),
-          TextFormField(
-            onChanged: (colorValue) {
-              context.read<CreateToDoCollectionCubit>().colorChanged(colorValue);
-            },
-            decoration: const InputDecoration(
-              labelText: 'Color',
+            TextFormField(
+              onChanged: (colorValue) {
+                context.read<CreateToDoCollectionCubit>().colorChanged(colorValue);
+              },
+              decoration: const InputDecoration(
+                labelText: 'Color',
+              ),
             ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              final isValid = _formKey.currentState?.validate();
-              if (isValid == true) {
-                context.read<CreateToDoCollectionCubit>().submit();
-              }
-            },
-            child: const Text('Save'),
-          ),
-        ],
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                final isValid = _formKey.currentState?.validate();
+                if (isValid == true) {
+                  context.read<CreateToDoCollectionCubit>().submit();
+                }
+              },
+              child: const Text('Save'),
+            ),
+          ],
+        ),
       ),
     );
   }
