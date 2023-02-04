@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:todo_app/1_domain/use_cases/add_todo_collection.dart';
 import 'package:todo_app/2_application/core/page_route_config.dart';
 import 'package:todo_app/2_application/pages/create_todo_collection/bloc/create_todo_collection_cubit.dart';
 
@@ -10,7 +12,9 @@ class CreateToDoCollectionProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => CreateToDoCollectionCubit(
-        addToDoCollection: RepositoryProvider.of(context),
+        addToDoCollection: AddToDoCollection(
+          toDoRepository: RepositoryProvider.of(context),
+        ),
       ),
       child: const CreateToDoCollection(),
     );
@@ -69,6 +73,7 @@ class _CreateToDoCollectionState extends State<CreateToDoCollection> {
                 final isValid = _formKey.currentState?.validate();
                 if (isValid == true) {
                   context.read<CreateToDoCollectionCubit>().submit();
+                  context.pop();
                 }
               },
               child: const Text('Save'),

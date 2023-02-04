@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:todo_app/1_domain/entities/unique_id.dart';
+import 'package:todo_app/2_application/pages/create_todo_entry/create_todo_entry.dart';
 import 'package:todo_app/2_application/widgets/todo_entry_item/todo_entry_item.dart';
 
 class ToDoDetailLoaded extends StatelessWidget {
@@ -28,9 +30,9 @@ class ToDoDetailLoaded extends StatelessWidget {
             Align(
               alignment: Alignment.bottomRight,
               child: FloatingActionButton(
-                onPressed: () => debugPrint('add entry'),
+                onPressed: () => context.push('/home/overview/${CreateToDoEntry.page.key}'),
                 child: const Icon(
-                  Icons.edit,
+                  Icons.add_rounded,
                 ),
               ),
             ),

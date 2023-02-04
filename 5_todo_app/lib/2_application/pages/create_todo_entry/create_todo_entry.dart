@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:todo_app/1_domain/use_cases/add_todo_entry.dart';
 import 'package:todo_app/2_application/core/page_route_config.dart';
 import 'package:todo_app/2_application/pages/create_todo_entry/bloc/create_todo_entry_cubit.dart';
 
@@ -10,7 +12,9 @@ class CreateToDoEntryProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => CreateToDoEntryCubit(
-        addToDoEntry: RepositoryProvider.of(context),
+        addToDoEntry: AddToDoEntry(
+          toDoRepository: RepositoryProvider.of(context),
+        ),
       ),
       child: const CreateToDoEntry(),
     );
@@ -24,8 +28,8 @@ class CreateToDoEntry extends StatefulWidget {
   State<CreateToDoEntry> createState() => _CreateToDoEntryState();
 
   static const page = PageRouteConfig(
-    key: 'add_todo_collection',
-    icon: Icons.add_task_rounded,
+    key: 'add_todo_entry',
+    icon: Icons.add_rounded,
     child: CreateToDoEntryProvider(),
   );
 }
@@ -61,6 +65,7 @@ class _CreateToDoEntryState extends State<CreateToDoEntry> {
                 final isValid = _formKey.currentState?.validate();
                 if (isValid == true) {
                   context.read<CreateToDoEntryCubit>().submit();
+                  context.pop();
                 }
               },
               child: const Text('Save'),
