@@ -44,23 +44,15 @@ class _CreateToDoEntryState extends State<CreateToDoEntry> {
             TextFormField(
               validator: (titleValue) {
                 if (titleValue == null || titleValue.isEmpty) {
-                  return 'Please enter a title';
+                  return 'Please enter a description';
                 }
                 return null;
               },
               onChanged: (titleValue) {
-                context.read<CreateToDoEntryCubit>().titleChanged(titleValue);
+                context.read<CreateToDoEntryCubit>().descriptionChanged(titleValue);
               },
               decoration: const InputDecoration(
-                labelText: 'Title',
-              ),
-            ),
-            TextFormField(
-              onChanged: (colorValue) {
-                context.read<CreateToDoEntryCubit>().colorChanged(colorValue);
-              },
-              decoration: const InputDecoration(
-                labelText: 'Color',
+                labelText: 'Description',
               ),
             ),
             const SizedBox(height: 16),
