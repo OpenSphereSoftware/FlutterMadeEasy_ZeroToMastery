@@ -5,15 +5,15 @@ import 'package:todo_app/1_domain/entities/unique_id.dart';
 import 'package:todo_app/1_domain/failures/failures.dart';
 
 abstract class ToDoRepository {
-  Future<Either<Failure, List<ToDoCollection>>> getToDoCollections();
+  Future<Either<Failure, List<ToDoCollection>>> readToDoCollections();
 
-  Future<Either<Failure, ToDoEntry>> getToDoEntry(UniqueID entryId);
+  Future<Either<Failure, ToDoEntry>> readToDoEntry(CollectionId collectionId, EntryId entryId);
 
-  Future<Either<Failure, ToDoEntry>> updateToDoEntry(UniqueID entryId);
+  Future<Either<Failure, ToDoEntry>> updateToDoEntry(CollectionId collectionId, EntryId entryId);
 
-  Future<Either<Failure, List<UniqueID>>> getToDoEntryIds(UniqueID collectionId);
+  Future<Either<Failure, List<EntryId>>> readToDoEntryIds(CollectionId collectionId);
 
-  Future<Either<Failure, bool>> addToDoCollection(ToDoCollection collection);
+  Future<Either<Failure, bool>> createToDoCollection(ToDoCollection collection);
 
-  Future<Either<Failure, bool>> addToDoEntry(ToDoEntry entry);
+  Future<Either<Failure, bool>> createToDoEntry(CollectionId collectionId, ToDoEntry entry);
 }

@@ -22,9 +22,9 @@ class CreateToDoCollectionCubit extends Cubit<CreateToDoCollectionState> {
     emit(state.copyWith(color: color));
   }
 
-  void submit() {
+  void submit() async {
     emit(state.copyWith(isSubmitting: true));
 
-    addToDoCollection.call(ToDoCollectionParams(collection: ToDoCollection.empty().copyWith(title: state.title)));
+    await addToDoCollection.call(ToDoCollectionParams(collection: ToDoCollection.empty().copyWith(title: state.title)));
   }
 }

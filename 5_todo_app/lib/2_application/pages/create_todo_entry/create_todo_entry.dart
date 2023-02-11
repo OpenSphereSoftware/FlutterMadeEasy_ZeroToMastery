@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:todo_app/1_domain/entities/unique_id.dart';
 import 'package:todo_app/1_domain/use_cases/add_todo_entry.dart';
 import 'package:todo_app/2_application/core/page_route_config.dart';
 import 'package:todo_app/2_application/pages/create_todo_entry/bloc/create_todo_entry_cubit.dart';
 
 class CreateToDoEntryProvider extends StatelessWidget {
-  const CreateToDoEntryProvider({super.key});
+  const CreateToDoEntryProvider({
+    super.key,
+    required this.collectionId,
+  });
+
+  final CollectionId collectionId;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => CreateToDoEntryCubit(
+        collectionId: collectionId,
         addToDoEntry: AddToDoEntry(
           toDoRepository: RepositoryProvider.of(context),
         ),
@@ -30,7 +37,7 @@ class CreateToDoEntry extends StatefulWidget {
   static const page = PageRouteConfig(
     key: 'add_todo_entry',
     icon: Icons.add_rounded,
-    child: CreateToDoEntryProvider(),
+    child: SizedBox(),
   );
 }
 

@@ -3,7 +3,7 @@ import 'package:todo_app/1_domain/entities/unique_id.dart';
 class ToDoEntry {
   final String description;
   final bool isDone;
-  final UniqueID id;
+  final EntryId id;
 
   const ToDoEntry({
     required this.id,
@@ -13,7 +13,7 @@ class ToDoEntry {
 
   factory ToDoEntry.empty() {
     return ToDoEntry(
-      id: UniqueID(),
+      id: EntryId(),
       description: "",
       isDone: false,
     );

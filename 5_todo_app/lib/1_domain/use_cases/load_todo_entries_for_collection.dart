@@ -4,15 +4,15 @@ import 'package:todo_app/1_domain/failures/failures.dart';
 import 'package:todo_app/1_domain/repositories/todo_repository.dart';
 import 'package:todo_app/core/use_case/use_case.dart';
 
-class LoadToDoEntriesForCollection implements UseCase<void, IdParams> {
+class LoadToDoEntriesForCollection implements UseCase<void, CollectionIdParam> {
   const LoadToDoEntriesForCollection({required this.toDoRepository});
 
   final ToDoRepository toDoRepository;
 
   @override
-  Future<Either<Failure, List<UniqueID>>> call(IdParams params) async {
+  Future<Either<Failure, List<EntryId>>> call(CollectionIdParam params) async {
     try {
-      final loadedIds = toDoRepository.getToDoEntryIds(params.id);
+      final loadedIds = toDoRepository.readToDoEntryIds(params.id);
 
       return loadedIds.fold(
         (left) => Left(left),

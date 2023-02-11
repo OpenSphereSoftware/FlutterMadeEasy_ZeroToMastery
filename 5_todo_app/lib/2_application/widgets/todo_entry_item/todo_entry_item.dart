@@ -12,15 +12,18 @@ class ToDoEntryItemProvider extends StatelessWidget {
   const ToDoEntryItemProvider({
     super.key,
     required this.entryId,
+    required this.collectionId,
   });
 
-  final UniqueID entryId;
+  final EntryId entryId;
+  final CollectionId collectionId;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ToDoEntryItemCubit(
         entryId: entryId,
+        collectionId: collectionId,
         updateToDoEntry: UpdateToDoEntry(
           toDoRepository: RepositoryProvider.of(context),
         ),

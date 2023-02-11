@@ -2,13 +2,13 @@ import 'package:todo_app/1_domain/entities/todo_color.dart';
 import 'package:todo_app/1_domain/entities/unique_id.dart';
 
 class ToDoCollection {
-  final UniqueID id;
+  final CollectionId id;
   final String title;
   final TodoColor color;
 
   factory ToDoCollection.empty() {
     return ToDoCollection(
-      id: UniqueID(),
+      id: CollectionId(),
       title: "",
       color: TodoColor(
         color: TodoColor.predefinedColors[5],

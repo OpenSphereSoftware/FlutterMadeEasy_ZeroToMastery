@@ -15,16 +15,18 @@ class ToDoEntryItemCubit extends Cubit<ToDoEntryItemState> {
     required this.loadToDoEntry,
     required this.updateToDoEntry,
     required this.entryId,
+    required this.collectionId,
   }) : super(initialState ?? ToDoEntryItemLoadingState());
 
-  final UniqueID entryId;
+  final EntryId entryId;
+  final CollectionId collectionId;
   final LoadToDoEntry loadToDoEntry;
   final UpdateToDoEntry updateToDoEntry;
 
   Future<void> fetchToDoEntry() async {
     emit(ToDoEntryItemLoadingState());
     try {
-      final entryFuture = loadToDoEntry.call(IdParams(id: entryId));
+      final entryFuture = loadToDoEntry.call(ToDoEntryIdsParam(entryId: entryId, collectionId: collectionId));
 
       final entry = await entryFuture;
 
@@ -40,7 +42,7 @@ class ToDoEntryItemCubit extends Cubit<ToDoEntryItemState> {
 
   Future<void> updateStateOfEntry() async {
     try {
-      final entryFuture = updateToDoEntry.call(IdParams(id: entryId));
+      final entryFuture = updateToDoEntry.call(ToDoEntryIdsParam(entryId: entryId, collectionId: collectionId));
 
       final entry = await entryFuture;
 

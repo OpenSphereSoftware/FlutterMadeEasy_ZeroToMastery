@@ -75,7 +75,7 @@ final routes = GoRouter(
                   },
                 ),
               ),
-              body: const SafeArea(child: CreateToDoEntryProvider()),
+              body: SafeArea(child: CreateToDoEntryProvider(collectionId: (state.extra! as CollectionId))),
             );
           },
         ),
@@ -98,7 +98,7 @@ final routes = GoRouter(
               ),
               body: ToDoDetailProvider(
                 key: state.pageKey,
-                collectionId: UniqueID.fromUniqueString(state.params['todoId']!),
+                collectionId: CollectionId.fromUniqueString(state.params['todoId']!),
               ),
             );
           },

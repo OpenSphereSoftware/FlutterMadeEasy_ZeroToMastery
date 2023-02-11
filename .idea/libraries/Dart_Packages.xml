@@ -45,6 +45,7 @@
           <value>
             <list>
               <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/bloc-8.1.0/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/bloc-8.1.1/lib" />
             </list>
           </value>
         </entry>
@@ -255,7 +256,7 @@
         <entry key="dwds">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/dwds-16.0.2/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/dwds-16.0.2+1/lib" />
             </list>
           </value>
         </entry>
@@ -307,7 +308,7 @@
             <list>
               <option value="$USER_HOME$/fvm/versions/3.7.0/packages/flutter/lib" />
               <option value="$USER_HOME$/fvm/versions/3.3.10/packages/flutter/lib" />
-              <option value="$USER_HOME$/fvm/versions/3.7.1/packages/flutter/lib" />
+              <option value="$USER_HOME$/fvm/versions/3.7.2/packages/flutter/lib" />
             </list>
           </value>
         </entry>
@@ -322,6 +323,7 @@
           <value>
             <list>
               <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_bloc-8.1.1/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_bloc-8.1.2/lib" />
             </list>
           </value>
         </entry>
@@ -343,7 +345,7 @@
         <entry key="flutter_localizations">
           <value>
             <list>
-              <option value="$USER_HOME$/fvm/versions/3.7.1/packages/flutter_localizations/lib" />
+              <option value="$USER_HOME$/fvm/versions/3.7.2/packages/flutter_localizations/lib" />
             </list>
           </value>
         </entry>
@@ -359,14 +361,14 @@
             <list>
               <option value="$USER_HOME$/fvm/versions/3.7.0/packages/flutter_test/lib" />
               <option value="$USER_HOME$/fvm/versions/3.3.10/packages/flutter_test/lib" />
-              <option value="$USER_HOME$/fvm/versions/3.7.1/packages/flutter_test/lib" />
+              <option value="$USER_HOME$/fvm/versions/3.7.2/packages/flutter_test/lib" />
             </list>
           </value>
         </entry>
         <entry key="flutter_web_plugins">
           <value>
             <list>
-              <option value="$USER_HOME$/fvm/versions/3.7.1/packages/flutter_web_plugins/lib" />
+              <option value="$USER_HOME$/fvm/versions/3.7.2/packages/flutter_web_plugins/lib" />
             </list>
           </value>
         </entry>
@@ -402,7 +404,7 @@
         <entry key="go_router">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/go_router-6.0.3/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/go_router-6.0.6/lib" />
             </list>
           </value>
         </entry>
@@ -688,7 +690,7 @@
             <list>
               <option value="$USER_HOME$/fvm/versions/3.7.0/bin/cache/pkg/sky_engine/lib" />
               <option value="$USER_HOME$/fvm/versions/3.3.10/bin/cache/pkg/sky_engine/lib" />
-              <option value="$USER_HOME$/fvm/versions/3.7.1/bin/cache/pkg/sky_engine/lib" />
+              <option value="$USER_HOME$/fvm/versions/3.7.2/bin/cache/pkg/sky_engine/lib" />
             </list>
           </value>
         </entry>
@@ -923,6 +925,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/args-2.3.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/async-2.10.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/bloc-8.1.0/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/bloc-8.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/bloc_test-9.1.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/boolean_selector-2.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/browser_launcher-1.1.1/lib" />
@@ -954,7 +957,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/dds_service_extensions-1.3.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/devtools_shared-2.18.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/diff_match_patch-0.4.1/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/dwds-16.0.2/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/dwds-16.0.2+1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/either_dart-0.3.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/equatable-2.0.5/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/fake_async-1.3.1/lib" />
@@ -963,13 +966,14 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/fixnum-1.0.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_adaptive_scaffold-0.1.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_bloc-8.1.1/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_bloc-8.1.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_lints-2.0.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_template_images-4.2.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/frontend_server_client-3.1.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/frontend_server_client-3.2.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/get_it-7.2.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/glob-2.1.1/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/go_router-6.0.3/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/go_router-6.0.6/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/graphs-2.2.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/html-0.15.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/http-0.13.5/lib" />
@@ -1048,11 +1052,11 @@
       <root url="file://$USER_HOME$/fvm/versions/3.7.0/packages/flutter_test/lib" />
       <root url="file://$USER_HOME$/fvm/versions/3.7.0/packages/fuchsia_remote_debug_protocol/lib" />
       <root url="file://$USER_HOME$/fvm/versions/3.7.0/packages/integration_test/lib" />
-      <root url="file://$USER_HOME$/fvm/versions/3.7.1/bin/cache/pkg/sky_engine/lib" />
-      <root url="file://$USER_HOME$/fvm/versions/3.7.1/packages/flutter/lib" />
-      <root url="file://$USER_HOME$/fvm/versions/3.7.1/packages/flutter_localizations/lib" />
-      <root url="file://$USER_HOME$/fvm/versions/3.7.1/packages/flutter_test/lib" />
-      <root url="file://$USER_HOME$/fvm/versions/3.7.1/packages/flutter_web_plugins/lib" />
+      <root url="file://$USER_HOME$/fvm/versions/3.7.2/bin/cache/pkg/sky_engine/lib" />
+      <root url="file://$USER_HOME$/fvm/versions/3.7.2/packages/flutter/lib" />
+      <root url="file://$USER_HOME$/fvm/versions/3.7.2/packages/flutter_localizations/lib" />
+      <root url="file://$USER_HOME$/fvm/versions/3.7.2/packages/flutter_test/lib" />
+      <root url="file://$USER_HOME$/fvm/versions/3.7.2/packages/flutter_web_plugins/lib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

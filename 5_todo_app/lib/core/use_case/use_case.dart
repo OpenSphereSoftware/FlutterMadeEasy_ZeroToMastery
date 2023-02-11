@@ -16,18 +16,38 @@ class NoParams extends Params {
   List<Object?> get props => [];
 }
 
-class IdParams extends Params {
-  IdParams({required this.id}) : super();
+class CollectionIdParam extends Params {
+  CollectionIdParam({required this.id}) : super();
 
-  final UniqueID id;
+  final CollectionId id;
 
   @override
   List<Object?> get props => [id];
 }
 
-class ToDoEntryParams extends Params {
-  ToDoEntryParams({required this.entry}) : super();
+class EntryIdParam extends Params {
+  EntryIdParam({required this.id}) : super();
 
+  final EntryId id;
+
+  @override
+  List<Object?> get props => [id];
+}
+
+class ToDoEntryIdsParam extends Params {
+  ToDoEntryIdsParam({required this.collectionId, required this.entryId}) : super();
+
+  final EntryId entryId;
+  final CollectionId collectionId;
+
+  @override
+  List<Object?> get props => [collectionId, entryId];
+}
+
+class ToDoEntryParams extends Params {
+  ToDoEntryParams({required this.collectionId, required this.entry}) : super();
+
+  final CollectionId collectionId;
   final ToDoEntry entry;
 
   @override

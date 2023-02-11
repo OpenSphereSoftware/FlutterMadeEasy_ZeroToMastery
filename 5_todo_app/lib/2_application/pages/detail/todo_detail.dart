@@ -14,7 +14,7 @@ class ToDoDetailProvider extends StatelessWidget {
     required this.collectionId,
   });
 
-  final UniqueID collectionId;
+  final CollectionId collectionId;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class TodoDetail extends StatelessWidget {
     required this.collectionId,
   });
 
-  final UniqueID collectionId;
+  final CollectionId collectionId;
 
   // TODO check if needed
   static const pageConfig = PageRouteConfig(
@@ -46,8 +46,6 @@ class TodoDetail extends StatelessWidget {
     icon: Icons.check_box_rounded,
     child: Text('dashboard'),
   );
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +55,7 @@ class TodoDetail extends StatelessWidget {
           return const ToDoDetailLoading();
         } else if (state is ToDoDetailLoadedState) {
           return ToDoDetailLoaded(
+            collectionId: collectionId,
             entryIds: state.entryIds,
           );
         }

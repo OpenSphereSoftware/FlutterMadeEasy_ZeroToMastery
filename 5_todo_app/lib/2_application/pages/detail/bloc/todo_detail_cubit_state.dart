@@ -11,7 +11,7 @@ abstract class ToDoDetailState extends Equatable {
 class ToDoDetailLoadedState extends ToDoDetailState {
   const ToDoDetailLoadedState({required this.entryIds});
 
-  final List<UniqueID> entryIds;
+  final List<EntryId> entryIds;
 
   @override
   List<Object> get props => [entryIds];

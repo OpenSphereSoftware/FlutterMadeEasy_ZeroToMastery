@@ -13,7 +13,7 @@ class AddCollectionButton extends StatelessWidget {
       // TODO(Max): add correct size for medium layout
       return FloatingActionButton.extended(
         onPressed: () {
-          context.go('/home/overview/${CreateToDoCollection.page.key}');
+          context.push('/home/overview/${CreateToDoCollection.page.key}');
         },
         label: const Text('Add Collection'),
         icon: const Icon(Icons.add_task_rounded),
@@ -21,7 +21,7 @@ class AddCollectionButton extends StatelessWidget {
     } else {
       return FloatingActionButton(
         onPressed: () {
-          context.go('/home/overview/${CreateToDoCollection.page.key}');
+          context.push('/home/overview/${CreateToDoCollection.page.key}');
         },
         child: const Icon(Icons.add_task_rounded),
       );

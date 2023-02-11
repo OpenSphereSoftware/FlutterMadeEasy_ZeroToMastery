@@ -11,7 +11,7 @@ class AddToDoCollection implements UseCase<void, ToDoCollectionParams> {
   @override
   Future<Either<Failure, bool>> call(ToDoCollectionParams params) async {
     try {
-      final addedEntry = toDoRepository.addToDoCollection(params.collection);
+      final addedEntry = toDoRepository.createToDoCollection(params.collection);
 
       return addedEntry.fold(
             (left) => Left(left),

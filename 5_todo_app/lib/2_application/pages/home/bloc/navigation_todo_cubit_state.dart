@@ -2,7 +2,7 @@ part of 'navigation_todo_cubit_cubit.dart';
 
 @immutable
 abstract class NavigationTodoCubitState extends Equatable {
-  final UniqueID? selectedTodoItem;
+  final CollectionId? selectedTodoItem;
   final bool? showGrid;
 
   const NavigationTodoCubitState({

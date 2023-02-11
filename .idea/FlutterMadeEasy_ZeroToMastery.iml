@@ -3,21 +3,24 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/3_advicer/.pub" />
-      <excludeFolder url="file://$MODULE_DIR$/3_advicer/build" />
-      <excludeFolder url="file://$MODULE_DIR$/3_advicer/.dart_tool" />
-      <excludeFolder url="file://$MODULE_DIR$/3_advicer/ios/.symlinks/plugins/integration_test/integration_test_macos/build" />
-      <excludeFolder url="file://$MODULE_DIR$/3_advicer/ios/.symlinks/plugins/integration_test/integration_test_macos/.dart_tool" />
-      <excludeFolder url="file://$MODULE_DIR$/3_advicer/ios/.symlinks/plugins/integration_test/integration_test_macos/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/2_flutter/build" />
       <excludeFolder url="file://$MODULE_DIR$/2_flutter/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/2_flutter/.pub" />
-      <excludeFolder url="file://$MODULE_DIR$/3_advicer/ios/.symlinks/plugins/integration_test/example/build" />
-      <excludeFolder url="file://$MODULE_DIR$/3_advicer/ios/.symlinks/plugins/integration_test/example/.dart_tool" />
-      <excludeFolder url="file://$MODULE_DIR$/3_advicer/ios/.symlinks/plugins/integration_test/example/.pub" />
-      <excludeFolder url="file://$MODULE_DIR$/3_advicer/ios/.symlinks/plugins/integration_test/build" />
+      <excludeFolder url="file://$MODULE_DIR$/3_advicer/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/3_advicer/build" />
+      <excludeFolder url="file://$MODULE_DIR$/3_advicer/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/3_advicer/ios/.symlinks/plugins/integration_test/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/3_advicer/ios/.symlinks/plugins/integration_test/example/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/3_advicer/ios/.symlinks/plugins/integration_test/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/3_advicer/ios/.symlinks/plugins/integration_test/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/3_advicer/ios/.symlinks/plugins/integration_test/integration_test_macos/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/3_advicer/ios/.symlinks/plugins/integration_test/integration_test_macos/build" />
+      <excludeFolder url="file://$MODULE_DIR$/3_advicer/ios/.symlinks/plugins/integration_test/integration_test_macos/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/3_advicer/ios/.symlinks/plugins/integration_test/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/3_advicer/ios/.symlinks/plugins/integration_test/build" />
+      <excludeFolder url="file://$MODULE_DIR$/5_todo_app/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/5_todo_app/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/5_todo_app/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

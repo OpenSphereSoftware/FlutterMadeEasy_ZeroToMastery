@@ -14,13 +14,13 @@ class ToDoDetailCubit extends Cubit<ToDoDetailState> {
     required this.collectionId,
   }) : super(initialState ?? ToDoDetailLoadingState());
 
-  final UniqueID collectionId;
+  final CollectionId collectionId;
   final LoadToDoEntriesForCollection loadToDoEntriesForCollection;
 
   Future<void> fetchToDoEntryIdsItems() async {
     emit(ToDoDetailLoadingState());
     try {
-      final entryIdsFuture = loadToDoEntriesForCollection.call(IdParams(id: collectionId));
+      final entryIdsFuture = loadToDoEntriesForCollection.call(CollectionIdParam(id: collectionId));
 
       final entryIds = await entryIdsFuture;
 

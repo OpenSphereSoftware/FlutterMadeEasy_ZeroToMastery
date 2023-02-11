@@ -8,7 +8,7 @@ part 'navigation_todo_cubit_state.dart';
 class NavigationTodoCubitCubit extends Cubit<NavigationTodoCubitState> {
   NavigationTodoCubitCubit() : super(const NavigationTodoCubitInitial());
 
-  void selectedTodoItemChanged(UniqueID? selectedItem) {
+  void selectedTodoItemChanged(CollectionId? selectedItem) {
     emit(NavigationTodoCubitInitial(selectedTodoItem: selectedItem));
   }
 

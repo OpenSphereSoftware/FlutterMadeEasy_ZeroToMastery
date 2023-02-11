@@ -7,10 +7,12 @@ import 'package:todo_app/2_application/widgets/todo_entry_item/todo_entry_item.d
 class ToDoDetailLoaded extends StatelessWidget {
   const ToDoDetailLoaded({
     required this.entryIds,
+    required this.collectionId,
     super.key,
   });
 
-  final List<UniqueID> entryIds;
+  final List<EntryId> entryIds;
+  final CollectionId collectionId;
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +26,14 @@ class ToDoDetailLoaded extends StatelessWidget {
               itemBuilder: (context, index) {
                 return ToDoEntryItemProvider(
                   entryId: entryIds[index],
+                  collectionId: collectionId,
                 );
               },
             ),
             Align(
               alignment: Alignment.bottomRight,
               child: FloatingActionButton(
-                onPressed: () => context.push('/home/overview/${CreateToDoEntry.page.key}'),
+                onPressed: () => context.push('/home/overview/${CreateToDoEntry.page.key}', extra: collectionId),
                 child: const Icon(
                   Icons.add_rounded,
                 ),
