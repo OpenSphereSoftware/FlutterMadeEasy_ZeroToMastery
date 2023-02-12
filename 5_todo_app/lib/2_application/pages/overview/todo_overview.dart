@@ -11,7 +11,6 @@ class ToDoOverviewProvider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('ToDoOverviewProvider build');
     return BlocProvider(
       create: (context) => ToDoOverviewCubit(
         loadOverviewCollections: LoadOverviewCollections(
@@ -28,7 +27,6 @@ class ToDoOverview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('ToDoOverview build');
     return BlocBuilder<ToDoOverviewCubit, ToDoOverviewState>(
       builder: (context, state) {
         if (state is ToDoOverviewLoadingState) {
