@@ -12,6 +12,7 @@ class AddCollectionButton extends StatelessWidget {
     if(isLarge){
       // TODO(Max): add correct size for medium layout
       return FloatingActionButton.extended(
+        heroTag: 'add-collection',
         onPressed: () {
           context.push('/home/overview/${CreateToDoCollection.page.key}');
         },
@@ -20,6 +21,7 @@ class AddCollectionButton extends StatelessWidget {
       );
     } else {
       return FloatingActionButton(
+        heroTag: 'add-collection',
         onPressed: () {
           context.push('/home/overview/${CreateToDoCollection.page.key}');
         },
