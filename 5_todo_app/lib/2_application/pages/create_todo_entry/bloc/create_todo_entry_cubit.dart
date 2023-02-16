@@ -18,7 +18,7 @@ class CreateToDoEntryCubit extends Cubit<CreateToDoEntryState> {
   final AddToDoEntry addToDoEntry;
 
   void descriptionChanged(String description) {
-    emit(state.copyWith(title: description));
+    emit(state.copyWith(description: description));
   }
 
   void submit() {

@@ -13,7 +13,7 @@ class ErrorMessage extends StatelessWidget {
         const Icon(
           Icons.error,
           size: 40,
-          color: Colors.redAccent,
+          colorIndex: Colors.redAccent,
         ),
         const SizedBox(
           height: 20,

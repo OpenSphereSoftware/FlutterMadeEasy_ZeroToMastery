@@ -56,7 +56,7 @@ class AdvicerPage extends StatelessWidget {
                       );
                     } else if (state is AdvicerStateLoading) {
                       return CircularProgressIndicator(
-                        color: themeData.colorScheme.secondary,
+                        colorIndex: themeData.colorScheme.secondary,
                       );
                     } else if (state is AdvicerStateLoaded) {
                       return AdviceField(

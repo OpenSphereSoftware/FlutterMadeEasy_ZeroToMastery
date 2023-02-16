@@ -3,8 +3,15 @@ import 'package:equatable/equatable.dart';
 abstract class Failure {}
 
 class CacheFailure extends Failure with EquatableMixin {
+  CacheFailure({this.stackTrace});
+
+  final String? stackTrace;
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [stackTrace];
+
+  @override
+  String toString() => stackTrace ?? '';
 }
 
 class ServerFailure extends Failure with EquatableMixin {

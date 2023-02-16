@@ -19,7 +19,7 @@ class _CounterScreenState extends State<CounterScreen> {
           style: TextStyle(
               fontSize: 70,
               fontWeight: FontWeight.bold,
-              color: _counter > 0 ? Colors.green : Colors.black),
+              colorIndex: _counter > 0 ? Colors.green : Colors.black),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

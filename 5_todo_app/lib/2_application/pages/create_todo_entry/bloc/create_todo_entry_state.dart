@@ -9,12 +9,12 @@ class CreateToDoEntryState extends Equatable {
   const CreateToDoEntryState({this.description, this.color, this.isSubmitting = false});
 
   CreateToDoEntryState copyWith({
-    String? title,
+    String? description,
     String? color,
     bool? isSubmitting,
   }) =>
       CreateToDoEntryState(
-        description: title ?? this.description,
+        description: description ?? this.description,
         color: color ?? this.color,
         isSubmitting: isSubmitting ?? this.isSubmitting,
       );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TodoColor {
-  final Color color;
+  final int colorIndex;
 
   static const List<Color> predefinedColors = [
     Color(0xffD62006),
@@ -12,5 +12,7 @@ class TodoColor {
     Color(0xff9A54E6),
   ];
 
-  TodoColor({required this.color});
+  Color get color => predefinedColors[colorIndex];
+
+  TodoColor({required this.colorIndex});
 }

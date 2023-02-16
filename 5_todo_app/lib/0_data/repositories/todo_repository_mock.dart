@@ -1,5 +1,4 @@
 import 'package:either_dart/either.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:todo_app/1_domain/entities/todo_collection.dart';
 import 'package:todo_app/1_domain/entities/todo_color.dart';
 import 'package:todo_app/1_domain/entities/todo_entry.dart';
@@ -9,11 +8,12 @@ import 'package:todo_app/1_domain/repositories/todo_repository.dart';
 
 class ToDoRepositoryMock implements ToDoRepository {
   final List<ToDoCollection> todoCollections = List.generate(
-    100,
-    (index) => ToDoCollection.empty().copyWith(
+    10,
+    (index) => ToDoCollection(
+      id: CollectionId.fromUniqueString(index.toString()),
       title: 'index $index',
       color: TodoColor(
-        color: TodoColor.predefinedColors[index % 5],
+        colorIndex: index % TodoColor.predefinedColors.length,
       ),
     ),
   );
@@ -59,10 +59,11 @@ class ToDoRepositoryMock implements ToDoRepository {
   @override
   Future<Either<Failure, List<EntryId>>> readToDoEntryIds(CollectionId collectionId) {
     try {
-      final list = todoEntries.map((entry) => entry.id).toList();
-      list.shuffle(); // shuffle list to get different results each time
-      final randomIds = list.sublist(0, 10); // every id has only ten entries
-      return Future.delayed(const Duration(milliseconds: 250), () => Right(randomIds));
+      final startIndex = int.parse(collectionId.value) * 10;
+      final endIndex = startIndex + 10;
+      final entryIds = todoEntries.sublist(startIndex, endIndex).map((entry) => entry.id).toList();
+
+      return Future.delayed(const Duration(milliseconds: 250), () => Right(entryIds));
     } on Exception catch (e) {
       return Future.value(Left(ServerFailure(stackTrace: e.toString())));
     }

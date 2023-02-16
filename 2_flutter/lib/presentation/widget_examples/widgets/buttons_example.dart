@@ -22,12 +22,12 @@ class _ButtonExamplesState extends State<ButtonExamples> {
               debugPrint('TextButton pressed');
             },
             child: Container(
-                decoration: const BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.all(Radius.circular(8))),
+                decoration: const BoxDecoration(colorIndex: Colors.blue, borderRadius: BorderRadius.all(Radius.circular(8))),
                 child: const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     'Text Button',
-                    style: TextStyle(color: Colors.black, fontSize: 20),
+                    style: TextStyle(colorIndex: Colors.black, fontSize: 20),
                   ),
                 ))),
         IconButton(

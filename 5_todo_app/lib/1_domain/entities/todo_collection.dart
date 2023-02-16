@@ -11,7 +11,7 @@ class ToDoCollection {
       id: CollectionId(),
       title: "",
       color: TodoColor(
-        color: TodoColor.predefinedColors[5],
+        colorIndex: 0,
       ),
     );
   }

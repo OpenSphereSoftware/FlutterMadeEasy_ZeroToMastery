@@ -10,11 +10,11 @@ class LayoutBuilderExample extends StatelessWidget {
     return Container(
       height: 300,
       width: 300,
-      color: Colors.yellow,
+      colorIndex: Colors.yellow,
       child: LayoutBuilder(builder: (context, constraints) {
         return Center(
           child: Container(
-            color: Colors.blue,
+            colorIndex: Colors.blue,
             width: constraints.maxWidth * 0.8,
             height: constraints.maxHeight / 2,
             child: const Center(

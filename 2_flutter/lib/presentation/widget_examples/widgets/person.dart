@@ -20,7 +20,7 @@ class Person extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.tealAccent,
+        colorIndex: Colors.tealAccent,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -40,7 +40,7 @@ class Person extends StatelessWidget {
               ),
               Container(
                 decoration: const BoxDecoration(
-                  color: Colors.white54,
+                  colorIndex: Colors.white54,
                 ),
                 width: double.infinity,
                 child: Center(

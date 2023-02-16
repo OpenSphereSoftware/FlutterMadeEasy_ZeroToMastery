@@ -26,13 +26,13 @@ class AppTheme {
   // Text Style - light
   // *****************
   static const TextStyle _lightHeadingText = TextStyle(
-      color: _lightTextColorPrimary,
+      colorIndex: _lightTextColorPrimary,
       fontFamily: "Rubik",
       fontSize: 20,
       fontWeight: FontWeight.bold);
 
   static const TextStyle _lightBodyText = TextStyle(
-      color: _lightTextColorPrimary,
+      colorIndex: _lightTextColorPrimary,
       fontFamily: "Rubik",
       fontStyle: FontStyle.italic,
       fontWeight: FontWeight.bold,
@@ -47,10 +47,10 @@ class AppTheme {
   // Text Style - dark
   // *****************
   static final TextStyle _darkThemeHeadingTextStyle =
-      _lightHeadingText.copyWith(color: _darkTextColorPrimary);
+      _lightHeadingText.copyWith(colorIndex: _darkTextColorPrimary);
 
   static final TextStyle _darkThemeBodyeTextStyle =
-      _lightBodyText.copyWith(color: _darkTextColorPrimary);
+      _lightBodyText.copyWith(colorIndex: _darkTextColorPrimary);
 
   static final TextTheme _darkTextTheme = TextTheme(
     headline1: _darkThemeHeadingTextStyle,
@@ -64,8 +64,8 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
       scaffoldBackgroundColor: _lightPrimaryColor,
       appBarTheme: const AppBarTheme(
-          color: _appbarColorLight,
-          iconTheme: IconThemeData(color: _iconColor)),
+          colorIndex: _appbarColorLight,
+          iconTheme: IconThemeData(colorIndex: _iconColor)),
       bottomAppBarColor: _appbarColorLight,
       colorScheme: ColorScheme.light(
         primary: _lightPrimaryColor,
@@ -78,8 +78,8 @@ class AppTheme {
   static final ThemeData darkTheme = ThemeData(
       scaffoldBackgroundColor: _darkPrimaryColor,
       appBarTheme: AppBarTheme(
-          color: _appbarColorDark,
-          iconTheme: const IconThemeData(color: _iconColor)),
+          colorIndex: _appbarColorDark,
+          iconTheme: const IconThemeData(colorIndex: _iconColor)),
       bottomAppBarColor: _appbarColorDark,
       colorScheme: ColorScheme.dark(
         primary: _darkPrimaryColor,
