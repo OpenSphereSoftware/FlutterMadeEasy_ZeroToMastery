@@ -14,18 +14,18 @@ class BasicApp extends StatelessWidget {
         ...GlobalMaterialLocalizations.delegates,
         GlobalWidgetsLocalizations.delegate,
       ],
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       theme: ThemeData.from(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.lime,
+          seedColor: Colors.deepOrangeAccent,
           brightness: Brightness.light,
         ),
       ),
       darkTheme: ThemeData.from(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.purple,
+          seedColor: Colors.deepOrangeAccent,
           brightness: Brightness.dark,
         ),
       ),

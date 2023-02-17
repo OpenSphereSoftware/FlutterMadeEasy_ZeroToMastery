@@ -37,7 +37,6 @@ class CreateToDoEntry extends StatefulWidget {
   static const page = PageRouteConfig(
     key: 'add_todo_entry',
     icon: Icons.add_rounded,
-    child: SizedBox(),
   );
 }
 
@@ -53,6 +52,9 @@ class _CreateToDoEntryState extends State<CreateToDoEntry> {
         child: Column(
           children: [
             TextFormField(
+              decoration: const InputDecoration(
+                labelText: 'Description',
+              ),
               validator: (titleValue) {
                 if (titleValue == null || titleValue.isEmpty) {
                   return 'Please enter a description';
@@ -62,12 +64,10 @@ class _CreateToDoEntryState extends State<CreateToDoEntry> {
               onChanged: (titleValue) {
                 context.read<CreateToDoEntryCubit>().descriptionChanged(titleValue);
               },
-              decoration: const InputDecoration(
-                labelText: 'Description',
-              ),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
+              child: const Text('Save'),
               onPressed: () {
                 final isValid = _formKey.currentState?.validate();
                 if (isValid == true) {
@@ -75,7 +75,6 @@ class _CreateToDoEntryState extends State<CreateToDoEntry> {
                   context.pop();
                 }
               },
-              child: const Text('Save'),
             ),
           ],
         ),

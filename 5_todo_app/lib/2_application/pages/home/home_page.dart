@@ -3,7 +3,7 @@ import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/1_domain/entities/unique_id.dart';
-import 'package:todo_app/2_application/core/page_route_config.dart';
+import 'package:todo_app/2_application/pages/dashboard/dashboard_page.dart';
 import 'package:todo_app/2_application/pages/detail/todo_detail.dart';
 import 'package:todo_app/2_application/pages/home/bloc/navigation_todo_cubit_cubit.dart';
 import 'package:todo_app/2_application/pages/overview/todo_overview.dart';
@@ -19,18 +19,9 @@ class HomePage extends StatefulWidget {
 
   final int index;
 
-  // move config to page if it exist
   static const tabs = [
-    PageRouteConfig(
-      key: 'dashboard',
-      icon: Icons.dashboard_rounded,
-      child: Text('dashboard'),
-    ),
-    PageRouteConfig(
-      key: 'overview',
-      icon: Icons.work_history_rounded,
-      child: ToDoOverviewProvider(), // This is important, otherwise we have no cubit to load our data
-    ),
+    DashboardPage.pageConfig,
+    ToDoOverview.pageConfig,
   ];
 
   @override
@@ -73,7 +64,7 @@ class _HomePageState extends State<HomePage> {
               bodyRatio: 0.3,
               primaryNavigation: SlotLayout(
                 config: <Breakpoint, SlotLayoutConfig>{
-                  Breakpoints.medium: SlotLayout.from(
+                  Breakpoints.mediumAndUp: SlotLayout.from(
                     inAnimation: AdaptiveScaffold.leftOutIn,
                     key: const Key('primary-navigation-medium'),
                     builder: (_) => AdaptiveScaffold.standardNavigationRail(
@@ -82,29 +73,22 @@ class _HomePageState extends State<HomePage> {
                         isLarge: true,
                       ),
                       selectedIndex: widget.index,
-                      extended: false,
-                      onDestinationSelected: (index) => _tap(context, index),
-                      destinations: destinations.map((_) => AdaptiveScaffold.toRailDestination(_)).toList(),
-                    ),
-                  ),
-                  Breakpoints.large: SlotLayout.from(
-                    inAnimation: AdaptiveScaffold.leftOutIn,
-                    key: const Key('primary-navigation-large'),
-                    builder: (_) => AdaptiveScaffold.standardNavigationRail(
-                      leading: const AddCollectionButton(
-                        key: Key('add-todo-button'),
-                        isLarge: true,
-                      ),
-                      selectedIndex: widget.index,
                       extended: true,
+                      selectedLabelTextStyle: TextStyle(
+                        color: Theme.of(context).colorScheme.onBackground,
+                      ),
+                      selectedIconTheme: IconThemeData(
+                        color: Theme.of(context).colorScheme.onBackground,
+                      ),
+                      unselectedIconTheme: IconThemeData(
+                        color: Theme.of(context).colorScheme.onBackground.withOpacity(0.5),
+                      ),
                       onDestinationSelected: (index) => _tap(context, index),
                       destinations: destinations.map((_) => AdaptiveScaffold.toRailDestination(_)).toList(),
                     ),
                   ),
                 },
               ),
-              // Body switches between a ListView and a GridView from small to medium
-              // breakpoints and onwards.
               body: SlotLayout(
                 config: <Breakpoint, SlotLayoutConfig>{
                   Breakpoints.smallAndUp: SlotLayout.from(
@@ -139,8 +123,6 @@ class _HomePageState extends State<HomePage> {
                   )
                 },
               ),
-              // BottomNavigation is only active in small views defined as under 600 dp
-              // width.
               bottomNavigation: SlotLayout(
                 config: <Breakpoint, SlotLayoutConfig>{
                   Breakpoints.small: SlotLayout.from(

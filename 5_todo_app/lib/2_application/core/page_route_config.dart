@@ -8,6 +8,6 @@ class PageRouteConfig {
   const PageRouteConfig({
     required this.icon,
     required this.key,
-    required this.child,
-  });
+    Widget? child,
+  }) : child = child ?? const Placeholder();
 }

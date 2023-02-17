@@ -9,10 +9,14 @@ class ToDoLocalMemoryDataSource implements ToDoLocalDataSource {
 
   @override
   Future<bool> creatToDoCollection(ToDoCollectionModel collection) {
-    todoCollections.add(collection);
-    todoEntries.putIfAbsent(collection.id, () => []);
+    try {
+      todoCollections.add(collection);
+      todoEntries.putIfAbsent(collection.id, () => []);
 
-    return Future.value(true);
+      return Future.value(true);
+    } on Exception catch (_) {
+      throw CacheExceptions();
+    }
   }
 
   @override
@@ -27,7 +31,7 @@ class ToDoLocalMemoryDataSource implements ToDoLocalDataSource {
     if (todoCollections.any((e) => e.id == collectionId)) {
       return Future.value(todoCollections.firstWhere((e) => e.id == collectionId));
     } else {
-      return Future.error(CacheExceptions());
+      throw CacheExceptions();
     }
   }
 
@@ -36,7 +40,7 @@ class ToDoLocalMemoryDataSource implements ToDoLocalDataSource {
     if (todoEntries.containsKey(collectionId)) {
       return Future.value(todoEntries[collectionId]!.firstWhere((e) => e.id == entryId));
     } else {
-      return Future.error(CacheExceptions());
+      throw CacheExceptions();
     }
   }
 
@@ -50,7 +54,7 @@ class ToDoLocalMemoryDataSource implements ToDoLocalDataSource {
 
       return Future.value(updatedEntry);
     } else {
-      return Future.error(CacheExceptions());
+      throw CacheExceptions();
     }
   }
 
@@ -59,7 +63,7 @@ class ToDoLocalMemoryDataSource implements ToDoLocalDataSource {
     if (todoEntries.containsKey(collectionId)) {
       return Future.value(todoEntries[collectionId]!.map((e) => e.id).toList());
     } else {
-      return Future.error(CacheExceptions());
+      throw CacheExceptions();
     }
   }
 

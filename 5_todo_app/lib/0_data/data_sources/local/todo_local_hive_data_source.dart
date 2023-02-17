@@ -43,7 +43,7 @@ class ToDoLocalHiveDataSource implements ToDoLocalDataSource {
   Future<bool> createToDoEntry(String collectionId, ToDoEntryModel entry) async {
     final entryBox = await _openEntryBox();
     final entryList = await entryBox.get(collectionId);
-    if (entryList == null) return Future.error(CollectionNotFoundException());
+    if (entryList == null) throw CollectionNotFoundException();
 
     entryList.cast<String, dynamic>().putIfAbsent(entry.id, () => entry.toJson());
 
@@ -56,14 +56,10 @@ class ToDoLocalHiveDataSource implements ToDoLocalDataSource {
   Future<ToDoCollectionModel> getToDoCollection(String collectionId) async {
     final collectionBox = await _openCollectionBox();
     final collection = await collectionBox.get(collectionId) as Map<String, dynamic>?;
-    try {
-      if (collection != null) {
-        return Future.value(ToDoCollectionModel.fromJson(collection));
-      } else {
-        return Future.error(CollectionNotFoundException());
-      }
-    } catch (e) {
-      return Future.error(CacheExceptions());
+    if (collection != null) {
+      return Future.value(ToDoCollectionModel.fromJson(collection));
+    } else {
+      throw EntryNotFoundException();
     }
   }
 
@@ -71,19 +67,15 @@ class ToDoLocalHiveDataSource implements ToDoLocalDataSource {
   Future<ToDoEntryModel> getToDoEntry(String collectionId, String entryId) async {
     final entryBox = await _openEntryBox();
     final entryList = await entryBox.get(collectionId);
-    if (entryList == null) return Future.error(CollectionNotFoundException());
-    if (!entryList.containsKey(entryId)) return Future.error(EntryNotFoundException());
+    if (entryList == null) throw CollectionNotFoundException();
+    if (!entryList.containsKey(entryId)) throw EntryNotFoundException();
 
     final entry = entryList[entryId].cast<String, dynamic>();
 
-    try {
-      if (entry != null) {
-        return Future.value(ToDoEntryModel.fromJson(entry));
-      } else {
-        return Future.error(EntryNotFoundException());
-      }
-    } catch (e) {
-      return Future.error(CacheExceptions());
+    if (entry != null) {
+      return Future.value(ToDoEntryModel.fromJson(entry));
+    } else {
+      throw EntryNotFoundException();
     }
   }
 
@@ -91,8 +83,8 @@ class ToDoLocalHiveDataSource implements ToDoLocalDataSource {
   Future<ToDoEntryModel> updateToDoEntry(String collectionId, String entryId) async {
     final entryBox = await _openEntryBox();
     final entryList = await entryBox.get(collectionId);
-    if (entryList == null) return Future.error(CollectionNotFoundException());
-    if (!entryList.containsKey(entryId)) return Future.error(EntryNotFoundException());
+    if (entryList == null) throw CollectionNotFoundException();
+    if (!entryList.containsKey(entryId)) throw EntryNotFoundException();
 
     final entry = ToDoEntryModel.fromJson(entryList[entryId].cast<String, dynamic>());
     final updatedEntry = ToDoEntryModel(
@@ -111,7 +103,7 @@ class ToDoLocalHiveDataSource implements ToDoLocalDataSource {
   Future<List<String>> getToDoEntryIds(String collectionId) async {
     final entryBox = await _openEntryBox();
     final entryList = await entryBox.get(collectionId);
-    if (entryList == null) return Future.error(CollectionNotFoundException());
+    if (entryList == null) throw CollectionNotFoundException();
 
     final entryIdList = entryList.cast<String, dynamic>().keys.toList();
 

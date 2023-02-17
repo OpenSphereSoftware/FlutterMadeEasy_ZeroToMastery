@@ -47,6 +47,9 @@ class _CreateToDoCollectionState extends State<CreateToDoCollection> {
         child: Column(
           children: [
             TextFormField(
+              decoration: const InputDecoration(
+                labelText: 'Title',
+              ),
               validator: (titleValue) {
                 if (titleValue == null || titleValue.isEmpty) {
                   return 'Please enter a title';
@@ -56,11 +59,11 @@ class _CreateToDoCollectionState extends State<CreateToDoCollection> {
               onChanged: (titleValue) {
                 context.read<CreateToDoCollectionCubit>().titleChanged(titleValue);
               },
-              decoration: const InputDecoration(
-                labelText: 'Title',
-              ),
             ),
             TextFormField(
+              decoration: const InputDecoration(
+                labelText: 'Color',
+              ),
               keyboardType: TextInputType.number,
               onChanged: (colorValue) {
                 context.read<CreateToDoCollectionCubit>().colorChanged(colorValue);
@@ -74,9 +77,6 @@ class _CreateToDoCollectionState extends State<CreateToDoCollection> {
                 }
                 return null;
               },
-              decoration: const InputDecoration(
-                labelText: 'Color',
-              ),
             ),
             const SizedBox(height: 16),
             ElevatedButton(

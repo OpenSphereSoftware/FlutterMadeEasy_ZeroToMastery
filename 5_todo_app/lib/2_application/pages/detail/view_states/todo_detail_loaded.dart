@@ -11,8 +11,8 @@ class ToDoDetailLoaded extends StatelessWidget {
     super.key,
   });
 
-  final List<EntryId> entryIds;
   final CollectionId collectionId;
+  final List<EntryId> entryIds;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,10 @@ class ToDoDetailLoaded extends StatelessWidget {
             Align(
               alignment: Alignment.bottomRight,
               child: FloatingActionButton(
-                onPressed: () => context.push('/home/overview/${CreateToDoEntry.page.key}', extra: collectionId),
+                onPressed: () => context.push(
+                  '/home/overview/${CreateToDoEntry.page.key}',
+                  extra: collectionId,
+                ),
                 child: const Icon(
                   Icons.add_rounded,
                 ),
