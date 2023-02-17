@@ -30,7 +30,7 @@ class CreateToDoCollectionCubit extends Cubit<CreateToDoCollectionState> {
       ToDoCollectionParams(
         collection: ToDoCollection.empty().copyWith(
           title: state.title,
-          color: TodoColor(colorIndex: int.tryParse(state.color ?? '') ?? 0),
+          color: ToDoColor(colorIndex: int.tryParse(state.color ?? '') ?? 0),
         ),
       ),
     );

@@ -90,7 +90,7 @@ class ToDoRepositoryImpl extends ToDoRepository {
     final entity = ToDoCollection(
       id: CollectionId.fromUniqueString(dto.id),
       title: dto.title,
-      color: TodoColor(colorIndex: dto.colorIndex),
+      color: ToDoColor(colorIndex: dto.colorIndex),
     );
 
     return entity;
