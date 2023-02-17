@@ -1,6 +1,6 @@
 import 'package:either_dart/either.dart';
-import 'package:todo_app/0_data/data_sources/todo_local_data_source.dart';
-import 'package:todo_app/0_data/data_sources/todo_remote_data_source.dart';
+import 'package:todo_app/0_data/data_sources/interfaces/todo_local_data_source.dart';
+import 'package:todo_app/0_data/data_sources/interfaces/todo_remote_data_source.dart';
 import 'package:todo_app/0_data/models/todo_collection_model.dart';
 import 'package:todo_app/0_data/models/todo_entry_model.dart';
 import 'package:todo_app/1_domain/entities/todo_collection.dart';
