@@ -1,6 +1,7 @@
 import 'package:either_dart/either.dart';
 import 'package:todo_app/0_data/data_sources/interfaces/todo_local_data_source.dart';
 import 'package:todo_app/0_data/data_sources/interfaces/todo_remote_data_source.dart';
+import 'package:todo_app/0_data/exceptions/exceptions.dart';
 import 'package:todo_app/0_data/models/todo_collection_model.dart';
 import 'package:todo_app/0_data/models/todo_entry_model.dart';
 import 'package:todo_app/1_domain/entities/todo_collection.dart';
@@ -22,6 +23,8 @@ class ToDoRepositoryImpl extends ToDoRepository {
       final result = await localDataSource.creatToDoCollection(toDoCollectionToDto(collection));
 
       return Future.value(Right(result));
+    } on CacheExceptions catch (e) {
+      return Future.value(Left(CacheFailure(stackTrace: e.toString())));
     } on Exception catch (e) {
       return Future.value(Left(ServerFailure(stackTrace: e.toString())));
     }
@@ -32,6 +35,8 @@ class ToDoRepositoryImpl extends ToDoRepository {
     try {
       final result = await localDataSource.createToDoEntry(collectionId.value, toDoEntryToDto(entry));
       return Future.value(Right(result));
+    } on CacheExceptions catch (e) {
+      return Future.value(Left(CacheFailure(stackTrace: e.toString())));
     } on Exception catch (e) {
       return Future.value(Left(ServerFailure(stackTrace: e.toString())));
     }
@@ -42,8 +47,10 @@ class ToDoRepositoryImpl extends ToDoRepository {
     try {
       final collections = await localDataSource.getToDoCollections();
       return Future.value(Right(collections.map((collection) => toDoCollectionModelToEntity(collection)).toList()));
-    } on Exception catch (e) {
+    } on CacheExceptions catch (e) {
       return Future.value(Left(CacheFailure(stackTrace: e.toString())));
+    } on Exception catch (e) {
+      return Future.value(Left(ServerFailure(stackTrace: e.toString())));
     }
   }
 
@@ -52,6 +59,8 @@ class ToDoRepositoryImpl extends ToDoRepository {
     try {
       final entry = await localDataSource.getToDoEntry(collectionId.value, entryId.value);
       return Future.delayed(const Duration(milliseconds: 250), () => Right(toDoEntryModelToEntity(entry)));
+    } on CacheExceptions catch (e) {
+      return Future.value(Left(CacheFailure(stackTrace: e.toString())));
     } on Exception catch (e) {
       return Future.value(Left(ServerFailure(stackTrace: e.toString())));
     }
@@ -62,8 +71,10 @@ class ToDoRepositoryImpl extends ToDoRepository {
     try {
       final entries = await localDataSource.getToDoEntryIds(collectionId.value);
       return Future.value(Right(entries.map((id) => EntryId.fromUniqueString(id)).toList()));
-    } on Exception catch (e) {
+    } on CacheExceptions catch (e) {
       return Future.value(Left(CacheFailure(stackTrace: e.toString())));
+    } on Exception catch (e) {
+      return Future.value(Left(ServerFailure(stackTrace: e.toString())));
     }
   }
 
@@ -72,8 +83,10 @@ class ToDoRepositoryImpl extends ToDoRepository {
     try {
       final entry = await localDataSource.updateToDoEntry(collectionId.value, entryId.value);
       return Future.value(Right(toDoEntryModelToEntity(entry)));
-    } on Exception catch (e) {
+    } on CacheExceptions catch (e) {
       return Future.value(Left(CacheFailure(stackTrace: e.toString())));
+    } on Exception catch (e) {
+      return Future.value(Left(ServerFailure(stackTrace: e.toString())));
     }
   }
 
