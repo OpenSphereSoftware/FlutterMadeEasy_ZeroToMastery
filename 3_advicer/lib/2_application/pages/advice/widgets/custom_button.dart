@@ -16,13 +16,13 @@ class CustomButton extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            colorIndex: onTap == null ? themeData.colorScheme.errorContainer : themeData.colorScheme.secondary,
+            color: onTap == null ? themeData.colorScheme.errorContainer : themeData.colorScheme.secondary,
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
             child: Text(
               'Get Advice',
-              style: themeData.textTheme.headline1,
+              style: themeData.textTheme.headlineLarge,
             ),
           ),
         ),

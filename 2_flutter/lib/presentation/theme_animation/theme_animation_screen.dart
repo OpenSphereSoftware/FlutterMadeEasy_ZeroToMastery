@@ -24,7 +24,7 @@ class ThemeAnimationScreen extends StatelessWidget {
               decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                        colorIndex: themeService.isDarkModeOn
+                        color: themeService.isDarkModeOn
                             ? Colors.black.withOpacity(0.7)
                             : Colors.grey,
                         offset: const Offset(0, 5),
@@ -109,7 +109,7 @@ class ThemeAnimationScreen extends StatelessWidget {
                       height: 225,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          colorIndex: themeService.isDarkModeOn
+                          color: themeService.isDarkModeOn
                               ? Colors.grey[800]
                               : Colors.white,
                           borderRadius: const BorderRadius.only(

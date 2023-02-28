@@ -16,7 +16,7 @@ class _ListItemState extends State<ListItem> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          colorIndex: Colors.blueAccent, borderRadius: BorderRadius.circular(5)),
+          color: Colors.blueAccent, borderRadius: BorderRadius.circular(5)),
       child: ListTile(
         title: Text(widget.title),
         subtitle: Text('item number ${widget.index}'),

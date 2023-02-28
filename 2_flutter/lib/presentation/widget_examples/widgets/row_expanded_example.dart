@@ -20,7 +20,7 @@ class RowEpandedExample extends StatelessWidget {
         Container(
           height: 20,
           width: 20,
-          colorIndex: Colors.blue,
+          color: Colors.blue,
         ),
         const SizedBox(
           width: 8,
@@ -28,7 +28,7 @@ class RowEpandedExample extends StatelessWidget {
         Container(
           height: 20,
           width: 20,
-          colorIndex: Colors.green,
+          color: Colors.green,
         ),
         const SizedBox(
           width: 8,

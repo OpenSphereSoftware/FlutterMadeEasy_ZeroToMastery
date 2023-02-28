@@ -13,11 +13,11 @@ class HelloWorld extends StatelessWidget {
         height: 200,
         width: 200,
         decoration: BoxDecoration(
-            colorIndex: Colors.blue,
+            color: Colors.blue,
             borderRadius: BorderRadius.circular(10)),
         child: const Center(
           child: Text('Hello World!',
-              style: TextStyle(colorIndex: Colors.red, fontSize: 20)),
+              style: TextStyle(color: Colors.red, fontSize: 20)),
         ),
       ),
     );

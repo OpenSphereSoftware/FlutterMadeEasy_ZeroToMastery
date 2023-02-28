@@ -13,7 +13,7 @@ class ErrorMessage extends StatelessWidget {
         const Icon(
           Icons.error,
           size: 40,
-          colorIndex: Colors.redAccent,
+          color: Colors.redAccent,
         ),
         const SizedBox(
           height: 20,
@@ -21,7 +21,7 @@ class ErrorMessage extends StatelessWidget {
         Flexible(
           child: Text(
             message,
-            style: themeData.textTheme.headline1,
+            style: themeData.textTheme.headlineLarge,
             textAlign: TextAlign.center,
           ),
         )

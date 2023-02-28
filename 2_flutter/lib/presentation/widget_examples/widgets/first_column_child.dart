@@ -8,7 +8,7 @@ class FirstColumnChild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      colorIndex: Colors.green,
+      color: Colors.green,
       child: const Padding(
           padding: EdgeInsets.all(20),
           child: Text(

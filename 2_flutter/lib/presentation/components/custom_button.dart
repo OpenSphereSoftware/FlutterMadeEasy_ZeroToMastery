@@ -30,7 +30,7 @@ class CustomButton extends StatelessWidget {
           child: Center(
             child: Icon(
               icon,
-              colorIndex: iconColor,
+              color: iconColor,
             ),
           ),
         ),
