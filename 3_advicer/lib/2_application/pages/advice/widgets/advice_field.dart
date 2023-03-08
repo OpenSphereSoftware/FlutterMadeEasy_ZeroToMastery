@@ -18,7 +18,7 @@ class AdviceField extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
             child: Text(
               advice.isNotEmpty ? '''" $advice "''' : emptyAdvice,
-              style: themeData.textTheme.bodyText1,
+              style: themeData.textTheme.bodyLarge,
               textAlign: TextAlign.center,
             ),
           )),
