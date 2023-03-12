@@ -20,6 +20,7 @@ dependencies:
   uuid: ^3.0.7
   either_dart: ^0.3.0
   equatable: ^2.0.5
+  flutter_bloc: ^8.1.2
 
 dev_dependencies:
   flutter_test:
