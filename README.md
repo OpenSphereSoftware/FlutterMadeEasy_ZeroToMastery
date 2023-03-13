@@ -37,6 +37,11 @@ Here We'll give you an introduction to the most important elements of UI creatio
 
 #### ❎   What's next? - road map
 
+* Adaptive Layout
+* Go Router
+* Hive (Local Storage)
+* Firebase (Crashlytics/Firestore/Authentication/Performance)
+
 ❗️ **Important:** In this course, We aimed to give you all the knowledge you need to start app development with Flutter quickly and effectively. We am not too "obsessed with details" and will not go into all the complex background processes that you are taught in a course of study, for example.
 
 **Here the focus is on quality and fun.**
