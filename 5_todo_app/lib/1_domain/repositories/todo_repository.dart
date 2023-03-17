@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:either_dart/either.dart';
 import 'package:todo_app/1_domain/entities/todo_collection.dart';
 import 'package:todo_app/1_domain/entities/todo_entry.dart';
@@ -17,4 +15,6 @@ abstract class ToDoRepository {
     required CollectionId collectionId,
     required EntryId entryId,
   });
+
+  Future<Either<Failure, bool>> createToDoCollection(ToDoCollection collection);
 }

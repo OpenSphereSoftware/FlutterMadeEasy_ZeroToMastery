@@ -12,6 +12,17 @@ class ToDoCollection {
     required this.color,
   });
 
+  ToDoCollection copyWith({
+    String? title,
+    ToDoColor? color,
+  }) {
+    return ToDoCollection(
+      id: id,
+      title: title ?? this.title,
+      color: color ?? this.color,
+    );
+  }
+
   factory ToDoCollection.empty() {
     return ToDoCollection(
       id: CollectionId(),
