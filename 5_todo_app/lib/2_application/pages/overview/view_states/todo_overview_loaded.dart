@@ -57,6 +57,7 @@ class ToDoOverviewLoaded extends StatelessWidget {
             alignment: Alignment.bottomRight,
             child: FloatingActionButton(
               key: const Key('create-todo-collection'),
+              heroTag: 'create-todo-collection',
               onPressed: () => context.pushNamed(CreateToDoCollectionPage.pageConfig.name),
               child: Icon(CreateToDoCollectionPage.pageConfig.icon),
             ),
