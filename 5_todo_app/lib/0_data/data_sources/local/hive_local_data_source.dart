@@ -58,7 +58,7 @@ class HiveLocalDataSource implements ToDoLocalDataSourceInterface {
   @override
   Future<ToDoCollectionModel> getToDoCollection({required String collectionId}) async {
     final collectionBox = await _openCollectionBox();
-    final collection = (await collectionBox.get(collectionId)) as Map<String, dynamic>?;
+    final collection = (await collectionBox.get(collectionId))?.cast<String, dynamic>();
     if (collection == null) {
       throw EntryNotFoundException();
     }
