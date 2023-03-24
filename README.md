@@ -46,7 +46,7 @@ Develop a simple app to learn the principles of clean software architecture for 
 
 ⭐️ ToDo App - Adaptive Layout
 
-Based on this App we will go over different topics, so we create a app that supports the new Material3 adaptive Layout. We go into the basic Form functions and as a bonus we move the validation logic into a Cubit. In this app we will use different local data sources to store all data, to have a permanent storage we will use the Hive package.
+Based on this App we will go over different topics, so we create a app that supports the new Material3 adaptive Layout. We go into the basic Form functions and as a bonus we move the validation logic into a Cubit. In this app we will use different local data sources to store all data, to have a permanent storage we will use the Hive package. The complete navigation is using the Navigator 2.0 with the go_router package.
 
 Whats next?
 
