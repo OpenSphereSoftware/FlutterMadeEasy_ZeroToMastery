@@ -54,10 +54,12 @@ class ToDoCollectionParams extends Params {
 class ToDoEntryParams extends Params {
   ToDoEntryParams({
     required this.entry,
+    required this.collectionId,
   }) : super();
 
   final ToDoEntry entry;
+  final CollectionId collectionId;
 
   @override
-  List<Object> get props => [entry];
+  List<Object> get props => [entry, collectionId];
 }

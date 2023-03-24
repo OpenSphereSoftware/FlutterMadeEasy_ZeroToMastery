@@ -17,6 +17,8 @@ class ToDoOverviewLoaded extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final shouldDisplayAddItemButton = Breakpoints.small.isActive(context);
+
     return Stack(
       children: [
         ListView.builder(
@@ -51,18 +53,19 @@ class ToDoOverviewLoaded extends StatelessWidget {
             );
           },
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Align(
-            alignment: Alignment.bottomRight,
-            child: FloatingActionButton(
-              key: const Key('create-todo-collection'),
-              heroTag: 'create-todo-collection',
-              onPressed: () => context.pushNamed(CreateToDoCollectionPage.pageConfig.name),
-              child: Icon(CreateToDoCollectionPage.pageConfig.icon),
+        if (shouldDisplayAddItemButton)
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: FloatingActionButton(
+                key: const Key('create-todo-collection'),
+                heroTag: 'create-todo-collection',
+                onPressed: () => context.pushNamed(CreateToDoCollectionPage.pageConfig.name),
+                child: Icon(CreateToDoCollectionPage.pageConfig.icon),
+              ),
             ),
           ),
-        ),
       ],
     );
   }
