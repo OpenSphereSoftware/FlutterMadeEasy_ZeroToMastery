@@ -58,73 +58,81 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: AdaptiveLayout(
-          primaryNavigation: SlotLayout(
-            config: <Breakpoint, SlotLayoutConfig>{
-              Breakpoints.mediumAndUp: SlotLayout.from(
-                key: const Key('primary-navigation-medium'),
-                builder: (context) => AdaptiveScaffold.standardNavigationRail(
-                  trailing: IconButton(
-                    onPressed: () => context.pushNamed(SettingsPage.pageConfig.name),
-                    icon: Icon(SettingsPage.pageConfig.icon),
+        child: BlocListener<NavigationToDoCubit, NavigationToDoCubitState>(
+          listenWhen: (previous, current) => previous.isSecondBodyDisplayed != current.isSecondBodyDisplayed,
+          listener: (context, state) {
+            if (context.canPop() && (state.isSecondBodyDisplayed ?? false)) {
+              context.pop();
+            }
+          },
+          child: AdaptiveLayout(
+            primaryNavigation: SlotLayout(
+              config: <Breakpoint, SlotLayoutConfig>{
+                Breakpoints.mediumAndUp: SlotLayout.from(
+                  key: const Key('primary-navigation-medium'),
+                  builder: (context) => AdaptiveScaffold.standardNavigationRail(
+                    trailing: IconButton(
+                      onPressed: () => context.pushNamed(SettingsPage.pageConfig.name),
+                      icon: Icon(SettingsPage.pageConfig.icon),
+                    ),
+                    onDestinationSelected: (index) => _tapOnNavigationDestination(context, index),
+                    selectedIndex: widget.index,
+                    destinations: destinations
+                        .map(
+                          (_) => AdaptiveScaffold.toRailDestination(_),
+                        )
+                        .toList(),
                   ),
-                  onDestinationSelected: (index) => _tapOnNavigationDestination(context, index),
-                  selectedIndex: widget.index,
-                  destinations: destinations
-                      .map(
-                        (_) => AdaptiveScaffold.toRailDestination(_),
-                      )
-                      .toList(),
                 ),
-              ),
-            },
-          ),
-          bottomNavigation: SlotLayout(
-            config: <Breakpoint, SlotLayoutConfig>{
-              Breakpoints.small: SlotLayout.from(
-                key: const Key('bottom-navigation-small'),
-                builder: (_) => AdaptiveScaffold.standardBottomNavigationBar(
-                  destinations: destinations,
-                  currentIndex: widget.index,
-                  onDestinationSelected: (value) => _tapOnNavigationDestination(context, value),
+              },
+            ),
+            bottomNavigation: SlotLayout(
+              config: <Breakpoint, SlotLayoutConfig>{
+                Breakpoints.small: SlotLayout.from(
+                  key: const Key('bottom-navigation-small'),
+                  builder: (_) => AdaptiveScaffold.standardBottomNavigationBar(
+                    destinations: destinations,
+                    currentIndex: widget.index,
+                    onDestinationSelected: (value) => _tapOnNavigationDestination(context, value),
+                  ),
                 ),
-              ),
-            },
-          ),
-          body: SlotLayout(
-            config: <Breakpoint, SlotLayoutConfig>{
-              Breakpoints.smallAndUp: SlotLayout.from(
-                key: const Key('primary-body-small'),
-                builder: (_) => HomePage.tabs[widget.index].child,
-              ),
-            },
-          ),
-          secondaryBody: SlotLayout(
-            config: <Breakpoint, SlotLayoutConfig>{
-              Breakpoints.mediumAndUp: SlotLayout.from(
-                key: const Key('secondary-body-medium'),
-                builder: widget.index != 1
-                    ? null
-                    : (_) => BlocBuilder<NavigationToDoCubit, NavigationToDoCubitState>(
-                          builder: (context, state) {
-                            final selectedId = state.selectedCollectionId;
-                            final isSecondBodyDisplayed = Breakpoints.mediumAndUp.isActive(context);
+              },
+            ),
+            body: SlotLayout(
+              config: <Breakpoint, SlotLayoutConfig>{
+                Breakpoints.smallAndUp: SlotLayout.from(
+                  key: const Key('primary-body-small'),
+                  builder: (_) => HomePage.tabs[widget.index].child,
+                ),
+              },
+            ),
+            secondaryBody: SlotLayout(
+              config: <Breakpoint, SlotLayoutConfig>{
+                Breakpoints.mediumAndUp: SlotLayout.from(
+                  key: const Key('secondary-body-medium'),
+                  builder: widget.index != 1
+                      ? null
+                      : (_) => BlocBuilder<NavigationToDoCubit, NavigationToDoCubitState>(
+                            builder: (context, state) {
+                              final selectedId = state.selectedCollectionId;
+                              final isSecondBodyDisplayed = Breakpoints.mediumAndUp.isActive(context);
 
-                            context.read<NavigationToDoCubit>().secondBodyHasChanged(
-                                  isSecondBodyDisplayed: isSecondBodyDisplayed,
-                                );
+                              context.read<NavigationToDoCubit>().secondBodyHasChanged(
+                                    isSecondBodyDisplayed: isSecondBodyDisplayed,
+                                  );
 
-                            if (selectedId == null) {
-                              return const Placeholder();
-                            }
-                            return ToDoDetailPageProvider(
-                              key: Key(selectedId.value),
-                              collectionId: selectedId,
-                            );
-                          },
-                        ),
-              ),
-            },
+                              if (selectedId == null) {
+                                return const Placeholder();
+                              }
+                              return ToDoDetailPageProvider(
+                                key: Key(selectedId.value),
+                                collectionId: selectedId,
+                              );
+                            },
+                          ),
+                ),
+              },
+            ),
           ),
         ),
       ),
