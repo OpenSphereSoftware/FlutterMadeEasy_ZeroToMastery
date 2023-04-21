@@ -9,6 +9,9 @@
       <excludeFolder url="file://$MODULE_DIR$/2_flutter/build" />
       <excludeFolder url="file://$MODULE_DIR$/2_flutter/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/2_flutter/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/5_todo_app/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/5_todo_app/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/5_todo_app/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
