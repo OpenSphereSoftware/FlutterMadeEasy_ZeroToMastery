@@ -21,7 +21,7 @@ class ErrorMessage extends StatelessWidget {
         Flexible(
           child: Text(
             message,
-            style: themeData.textTheme.headline1,
+            style: themeData.textTheme.displayLarge,
             textAlign: TextAlign.center,
           ),
         )

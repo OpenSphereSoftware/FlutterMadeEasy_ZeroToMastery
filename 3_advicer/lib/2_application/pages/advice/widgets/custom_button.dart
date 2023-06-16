@@ -22,7 +22,7 @@ class CustomButton extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
             child: Text(
               'Get Advice',
-              style: themeData.textTheme.headline1,
+              style: themeData.textTheme.displayLarge,
             ),
           ),
         ),

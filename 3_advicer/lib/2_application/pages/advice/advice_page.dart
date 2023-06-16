@@ -30,7 +30,7 @@ class AdvicerPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Advicer',
-          style: themeData.textTheme.headline1,
+          style: themeData.textTheme.displayLarge,
         ),
         centerTitle: true,
         actions: [
@@ -52,7 +52,7 @@ class AdvicerPage extends StatelessWidget {
                     if (state is AdvicerInitial) {
                       return Text(
                         'Your Advice is waiting for you!',
-                        style: themeData.textTheme.headline1,
+                        style: themeData.textTheme.displayLarge,
                       );
                     } else if (state is AdvicerStateLoading) {
                       return CircularProgressIndicator(
