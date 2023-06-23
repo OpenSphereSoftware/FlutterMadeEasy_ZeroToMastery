@@ -36,7 +36,7 @@ final routes = GoRouter(
           path: '$_basePath/:tab',
           builder: (context, state) => HomePageProvider(
             key: state.pageKey,
-            tab: state.pathParameters['tab']!,
+            tab: state.params['tab']!,
           ),
         ),
       ],
@@ -54,7 +54,7 @@ final routes = GoRouter(
               } else {
                 context.goNamed(
                   HomePage.pageConfig.name,
-                  pathParameters: {'tab': OverviewPage.pageConfig.name},
+                  params: {'tab': OverviewPage.pageConfig.name},
                 );
               }
             },
@@ -80,7 +80,7 @@ final routes = GoRouter(
                 } else {
                   context.goNamed(
                     HomePage.pageConfig.name,
-                    pathParameters: {'tab': OverviewPage.pageConfig.name},
+                    params: {'tab': OverviewPage.pageConfig.name},
                   );
                 }
               },
@@ -109,7 +109,7 @@ final routes = GoRouter(
                 } else {
                   context.goNamed(
                     HomePage.pageConfig.name,
-                    pathParameters: {'tab': OverviewPage.pageConfig.name},
+                    params: {'tab': OverviewPage.pageConfig.name},
                   );
                 }
               },
@@ -117,7 +117,7 @@ final routes = GoRouter(
           ),
           body: ToDoDetailPageProvider(
             collectionId: CollectionId.fromUniqueString(
-              state.pathParameters['collectionId'] ?? '',
+              state.params['collectionId'] ?? '',
             ),
           ),
         );
