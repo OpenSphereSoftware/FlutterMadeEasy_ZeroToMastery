@@ -41,7 +41,7 @@ class ToDoOverviewLoaded extends StatelessWidget {
                     if (Breakpoints.small.isActive(context)) {
                       context.pushNamed(
                         ToDoDetailPage.pageConfig.name,
-                        params: {'collectionId': item.id.value},
+                        pathParameters: {'collectionId': item.id.value},
                       );
                     }
                   },
