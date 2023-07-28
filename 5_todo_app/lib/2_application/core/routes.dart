@@ -43,7 +43,7 @@ final routes = GoRouter(
     ),
     GoRoute(
       name: 'profile',
-      path: 'profile',
+      path: '/profile',
       builder: (context, state) => ProfileScreen(
         actions: [
           SignedOutAction((context) {

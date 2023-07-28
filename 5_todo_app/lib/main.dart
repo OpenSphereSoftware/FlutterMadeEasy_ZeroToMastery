@@ -28,7 +28,6 @@ Future<void> main() async {
   final authCubit = AuthCubit();
 
   FirebaseAuth.instance.authStateChanges().listen((user) {
-    debugPrint('user: $user');
     authCubit.authStateChanged(user: user);
   });
 
