@@ -87,6 +87,17 @@ class _HomePageState extends State<HomePage> {
                 ),
               },
             ),
+            topNavigation: SlotLayout(config: <Breakpoint, SlotLayoutConfig>{
+              Breakpoints.small: SlotLayout.from(
+                key: const Key('top-navigation-small'),
+                builder: (context) => const Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    LoginButton(),
+                  ],
+                ),
+              ),
+            }),
             bottomNavigation: SlotLayout(
               config: <Breakpoint, SlotLayoutConfig>{
                 Breakpoints.small: SlotLayout.from(
