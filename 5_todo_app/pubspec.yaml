@@ -26,6 +26,7 @@ dependencies:
   hive: ^2.2.3
   firebase_core: ^2.15.0
   firebase_auth: ^4.7.2
+  firebase_ui_auth: ^1.6.2
 
 dev_dependencies:
   build_runner: ^2.4.5
