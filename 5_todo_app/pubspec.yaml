@@ -25,6 +25,7 @@ dependencies:
   json_annotation: ^4.8.1
   hive: ^2.2.3
   firebase_core: ^2.15.0
+  firebase_auth: ^4.7.2
 
 dev_dependencies:
   build_runner: ^2.4.5
