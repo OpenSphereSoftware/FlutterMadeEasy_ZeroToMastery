@@ -19,9 +19,19 @@ class FirestoreRemoteDataSource implements ToDoRemoteDataSourceInterface {
   }
 
   @override
-  Future<bool> createToDoEntry({required String userId, required String collectionId, required ToDoEntryModel entry}) {
-    // TODO: implement createToDoEntry
-    throw UnimplementedError();
+  Future<bool> createToDoEntry({
+    required String userId,
+    required String collectionId,
+    required ToDoEntryModel entry,
+  }) async {
+    return FirebaseFirestore.instance
+        .collection(userId)
+        .doc(collectionId)
+        .collection('todo-entries')
+        .doc(entry.id)
+        .set(entry.toJson())
+        .then((value) => true)
+        .catchError((error) => false);
   }
 
   @override
@@ -50,21 +60,56 @@ class FirestoreRemoteDataSource implements ToDoRemoteDataSourceInterface {
   }
 
   @override
-  Future<ToDoEntryModel> getToDoEntry({required String userId, required String collectionId, required String entryId}) {
-    // TODO: implement getToDoEntry
-    throw UnimplementedError();
+  Future<ToDoEntryModel> getToDoEntry({
+    required String userId,
+    required String collectionId,
+    required String entryId,
+  }) async {
+    final docSnapshot = await FirebaseFirestore.instance
+        .collection(userId)
+        .doc(collectionId)
+        .collection('todo-entries')
+        .doc(entryId)
+        .get();
+
+    if (docSnapshot.exists || docSnapshot.data() != null) {
+      final result = ToDoEntryModel.fromJson(docSnapshot.data()!);
+
+      return result;
+    } else {
+      throw FirestoreEntryNotFoundException(
+        id: entryId,
+        collectionId: collectionId,
+      );
+    }
   }
 
   @override
-  Future<List<String>> getToDoEntryIds({required String userId, required String collectionId}) {
-    // TODO: implement getToDoEntryIds
-    throw UnimplementedError();
+  Future<List<String>> getToDoEntryIds({
+    required String userId,
+    required String collectionId,
+  }) async {
+    final querySnapshot =
+        await FirebaseFirestore.instance.collection(userId).doc(collectionId).collection('todo-entries').get();
+
+    final result = querySnapshot.docs.map((doc) => doc.id).toList();
+
+    return result;
   }
 
   @override
-  Future<ToDoEntryModel> updateToDoEntry(
-      {required String userId, required String collectionId, required ToDoEntryModel entry}) {
-    // TODO: implement updateToDoEntry
-    throw UnimplementedError();
+  Future<ToDoEntryModel> updateToDoEntry({
+    required String userId,
+    required String collectionId,
+    required ToDoEntryModel entry,
+  }) async {
+    await FirebaseFirestore.instance
+        .collection(userId)
+        .doc(collectionId)
+        .collection('todo-entries')
+        .doc(entry.id)
+        .set(entry.toJson(), SetOptions(merge: true));
+
+    return entry;
   }
 }
