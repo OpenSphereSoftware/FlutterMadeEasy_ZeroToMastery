@@ -1,7 +1,7 @@
 import 'package:todo_app/0_data/models/todo_collection_model.dart';
 import 'package:todo_app/0_data/models/todo_entry_model.dart';
 
-abstract class ToDoRemoteDataSourceInterace {
+abstract class ToDoRemoteDataSourceInterface {
   Future<ToDoEntryModel> getToDoEntry({
     required String userId,
     required String collectionId,
