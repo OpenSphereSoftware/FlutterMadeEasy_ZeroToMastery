@@ -12,6 +12,13 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: SafeArea(
+        child: TextButton(
+          onPressed: () => throw Exception('Test exception'),
+          child: const Text('Crash'),
+        ),
+      ),
+    );
   }
 }
