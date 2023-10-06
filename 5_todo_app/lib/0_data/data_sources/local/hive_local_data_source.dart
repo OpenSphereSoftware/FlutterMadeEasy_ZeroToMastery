@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
@@ -13,12 +14,16 @@ class HiveLocalDataSource implements ToDoLocalDataSourceInterface {
 
   Future<void> init() async {
     if (!isInitialized) {
-      final directory = await getApplicationDocumentsDirectory();
+      String path = '';
+      if (!kIsWeb) {
+        final directory = await getApplicationDocumentsDirectory();
+        path = directory.path;
+      }
 
       todoCollections = await BoxCollection.open(
         'todo',
         {'collection', 'entry'},
-        path: directory.path,
+        path: path,
       );
       isInitialized = true;
     } else {
