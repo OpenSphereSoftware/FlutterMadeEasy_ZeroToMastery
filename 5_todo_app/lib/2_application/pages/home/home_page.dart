@@ -66,6 +66,7 @@ class _HomePageState extends State<HomePage> {
             }
           },
           child: AdaptiveLayout(
+            internalAnimations: false,
             primaryNavigation: SlotLayout(
               config: <Breakpoint, SlotLayoutConfig>{
                 Breakpoints.mediumAndUp: SlotLayout.from(
