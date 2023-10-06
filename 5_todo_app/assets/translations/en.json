@@ -1,0 +1,18 @@
+{
+    "settings": "Settings",
+    "login": "Login",
+    "profile": "Profile",
+    "home_dashboard": "Dashboard",
+    "home_overview": "Overview",
+    "overview_add_collection": "Add Collection",
+    "collection_title": "Create Collection",
+    "collection_title_label": "Title",
+    "collection_color_label": "Color",
+    "colelction_save": "Save",
+    "detail_title": "Collection Details",
+    "detail_add_todo": "Add ToDo",
+    "todo_title": "Create ToDo",
+    "todo_description_label": "description",
+    "todo_save": "Save todo",
+    "collection_color_failure": "Only numbers between 0 and {numbers} are allowed"
+}

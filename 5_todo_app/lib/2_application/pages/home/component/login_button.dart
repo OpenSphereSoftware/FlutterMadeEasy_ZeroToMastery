@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -11,11 +12,11 @@ class LoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AuthCubit, AuthCubitState>(
       builder: (context, state) {
-        String buttonTitle = 'Login';
+        String buttonTitle = 'login'.tr();
         Function onPressed = () => context.pushNamed('login');
 
         if (state is AuthCubitInitial && state.isLoggedIn) {
-          buttonTitle = 'Profile';
+          buttonTitle = 'profile'.tr();
           onPressed = () => context.pushNamed('profile');
         }
 

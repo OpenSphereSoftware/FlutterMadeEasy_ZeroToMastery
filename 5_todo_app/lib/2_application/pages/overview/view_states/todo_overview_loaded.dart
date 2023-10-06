@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -59,6 +60,7 @@ class ToDoOverviewLoaded extends StatelessWidget {
             child: FloatingActionButton(
               key: const Key('create-todo-collection'),
               heroTag: 'create-todo-collection',
+              tooltip: 'overview_add_collection'.tr(),
               onPressed: () {
                 context.pushNamed(CreateToDoCollectionPage.pageConfig.name).then((value) {
                   if (value == true) {

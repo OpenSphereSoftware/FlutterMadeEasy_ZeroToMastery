@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -36,6 +37,7 @@ class ToDoDetailLoaded extends StatelessWidget {
               child: FloatingActionButton(
                 key: const Key('create-todo-entry'),
                 heroTag: 'create-todo-entry',
+                tooltip: 'detail_add_todo'.tr(),
                 onPressed: collectionId == null
                     ? null
                     : () {
