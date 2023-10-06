@@ -12,10 +12,10 @@ import 'package:todo_app/2_application/pages/detail/view_states/todo_detail_load
 class ToDoDetailPageProvider extends StatelessWidget {
   const ToDoDetailPageProvider({
     super.key,
-    required this.collectionId,
+    this.collectionId,
   });
 
-  final CollectionId collectionId;
+  final CollectionId? collectionId;
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +36,10 @@ class ToDoDetailPageProvider extends StatelessWidget {
 class ToDoDetailPage extends StatelessWidget {
   const ToDoDetailPage({
     super.key,
-    required this.collectionId,
+    this.collectionId,
   });
 
-  final CollectionId collectionId;
+  final CollectionId? collectionId;
 
   static const pageConfig = PageConfig(
     icon: Icons.details_rounded,

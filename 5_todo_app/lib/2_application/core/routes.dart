@@ -1,3 +1,4 @@
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/1_domain/entities/unique_id.dart';
@@ -20,6 +21,40 @@ final routes = GoRouter(
   initialLocation: '$_basePath/${DasboardPage.pageConfig.name}',
   observers: [GoRouterObserver()],
   routes: [
+    GoRoute(
+      name: 'login',
+      path: '/login',
+      builder: (context, state) => SignInScreen(
+        actions: [
+          AuthStateChangeAction<SignedIn>((context, signedIn) {
+            context.pushNamed(
+              HomePage.pageConfig.name,
+              pathParameters: {'tab': OverviewPage.pageConfig.name},
+            );
+          }),
+          AuthStateChangeAction<UserCreated>((context, signedIn) {
+            context.pushNamed(
+              HomePage.pageConfig.name,
+              pathParameters: {'tab': DasboardPage.pageConfig.name},
+            );
+          }),
+        ],
+      ),
+    ),
+    GoRoute(
+      name: 'profile',
+      path: '/profile',
+      builder: (context, state) => ProfileScreen(
+        actions: [
+          SignedOutAction((context) {
+            context.goNamed(
+              HomePage.pageConfig.name,
+              pathParameters: {'tab': OverviewPage.pageConfig.name},
+            );
+          }),
+        ],
+      ),
+    ),
     GoRoute(
       name: SettingsPage.pageConfig.name,
       path: '$_basePath/${SettingsPage.pageConfig.name}',

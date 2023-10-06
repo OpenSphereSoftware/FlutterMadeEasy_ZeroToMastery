@@ -1,0 +1,18 @@
+{
+    "settings": "Einstellungs",
+    "login": "Anmelden",
+    "profile": "Profile",
+    "home_dashboard": "Dashboard",
+    "home_overview": "Übersicht",
+    "overview_add_collection": "Sammlung hinzufügen",
+    "collection_title": "Sammlung hinzufügen",
+    "collection_title_label": "Name",
+    "collection_color_label": "Farbe",
+    "colelction_save": "Speichern",
+    "detail_title": "Sammlungsinformationen",
+    "detail_add_todo": "Todo hinzufügen",
+    "todo_title": "ToDo hinzufügen",
+    "todo_description_label": "Beschreibung",
+    "todo_save": "Speichern",
+    "collection_color_failure": "Nur Nummern zwischen 0 und {numbers} sind möglich"
+}

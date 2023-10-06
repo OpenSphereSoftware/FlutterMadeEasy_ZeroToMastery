@@ -19,3 +19,9 @@ doc/api/
 *.js_
 *.js.deps
 *.js.map
+
+# exclude firebase config
+5_todo_app/android/app/google-services.json
+5_todo_app/lib/firebase_options.dart
+5_todo_app/ios/Runner/GoogleService-Info.plist
+5_todo_app/ios/firebase_app_id_file.json

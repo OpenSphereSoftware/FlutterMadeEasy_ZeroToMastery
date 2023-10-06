@@ -6,6 +6,7 @@ import 'package:todo_app/2_application/core/page_config.dart';
 import 'package:todo_app/2_application/pages/dashboard/dashboard_page.dart';
 import 'package:todo_app/2_application/pages/detail/todo_detail_page.dart';
 import 'package:todo_app/2_application/pages/home/bloc/navigation_todo_cubit.dart';
+import 'package:todo_app/2_application/pages/home/component/login_button.dart';
 import 'package:todo_app/2_application/pages/overview/overview_page.dart';
 import 'package:todo_app/2_application/pages/settings/settings_page.dart';
 
@@ -74,6 +75,7 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () => context.pushNamed(SettingsPage.pageConfig.name),
                       icon: Icon(SettingsPage.pageConfig.icon),
                     ),
+                    leading: const LoginButton(),
                     onDestinationSelected: (index) => _tapOnNavigationDestination(context, index),
                     selectedIndex: widget.index,
                     destinations: destinations
@@ -85,6 +87,21 @@ class _HomePageState extends State<HomePage> {
                 ),
               },
             ),
+            topNavigation: SlotLayout(config: <Breakpoint, SlotLayoutConfig>{
+              Breakpoints.small: SlotLayout.from(
+                key: const Key('top-navigation-small'),
+                builder: (context) => Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      onPressed: () => context.pushNamed(SettingsPage.pageConfig.name),
+                      icon: const Icon(Icons.settings),
+                    ),
+                    const LoginButton(),
+                  ],
+                ),
+              ),
+            }),
             bottomNavigation: SlotLayout(
               config: <Breakpoint, SlotLayoutConfig>{
                 Breakpoints.small: SlotLayout.from(
@@ -140,7 +157,7 @@ class _HomePageState extends State<HomePage> {
 
   void _tapOnNavigationDestination(BuildContext context, int index) => context.goNamed(
         HomePage.pageConfig.name,
-    pathParameters: {
+        pathParameters: {
           'tab': HomePage.tabs[index].name,
         },
       );
