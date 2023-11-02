@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/2_application/core/go_router_observer.dart';
+import 'package:todo_app/2_application/pages/home/home_page.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
 final routes = GoRouter(
   navigatorKey: _rootNavigatorKey,
-  initialLocation: '/home/start',
+  initialLocation: '/home',
   observers: [GoRouterObserver()],
   routes: [
     GoRoute(
@@ -36,29 +37,9 @@ final routes = GoRouter(
       },
     ),
     GoRoute(
-      path: '/home/start',
+      path: '/home',
       builder: (context, state) {
-        return Container(
-          color: Colors.blueGrey,
-          child: Column(
-            children: [
-              ElevatedButton(
-                onPressed: () => context.push('/home/settings'),
-                child: const Text('Go to settings'),
-              ),
-              TextButton(
-                onPressed: () {
-                  if (context.canPop()) {
-                    context.pop();
-                  } else {
-                    context.push('/home/settings');
-                  }
-                },
-                child: const Text('Go back'),
-              ),
-            ],
-          ),
-        );
+        return HomePage();
       },
     )
   ],
