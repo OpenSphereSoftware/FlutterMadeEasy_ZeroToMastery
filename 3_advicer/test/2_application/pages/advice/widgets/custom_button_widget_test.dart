@@ -46,7 +46,7 @@ void main() {
             'when someone has pressed the button',
             ((widgetTester) async {
               final mockOnCustomButtonTap = MockOnCustomButtonTap();
-              await widgetTester.pumpWidget(widgetUnderMethod(callback: mockOnCustomButtonTap));
+              await widgetTester.pumpWidget(widgetUnderMethod(callback: mockOnCustomButtonTap.call));
 
               final customButtonFinder = find.byType(CustomButton);
 
