@@ -6,6 +6,10 @@ import 'package:todo_app/1_domain/repositories/todo_repository.dart';
 import 'package:todo_app/1_domain/use_cases/load_todo_entry_ids_for_collection.dart';
 import 'package:todo_app/2_application/core/page_config.dart';
 import 'package:todo_app/2_application/pages/detail/bloc/todo_detail_cubit.dart';
+import 'package:todo_app/2_application/pages/detail/view_states/todo_detail_error.dart';
+import 'package:todo_app/2_application/pages/detail/view_states/todo_detail_loaded.dart';
+import 'package:todo_app/2_application/pages/detail/view_states/todo_detail_loading.dart';
+import 'package:todo_app/2_application/pages/overview/bloc/todo_overview_cubit.dart';
 
 class ToDoDetailPageProvider extends StatelessWidget {
   const ToDoDetailPageProvider({
@@ -49,7 +53,16 @@ class ToDoDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ToDoDetailCubit, ToDoDetailCubitState>(
       builder: (context, state) {
-        return const Placeholder();
+        if (state is ToDoDetailCubitLoadingState) {
+          return const ToDoDetailLoading();
+        } else if (state is ToDoDetailCubitLoadedState) {
+          return ToDoDetailLoaded(
+            collectionId: collectionId,
+            entryIds: state.entryIds,
+          );
+        } else {
+          return const ToDoDetailError();
+        }
       },
     );
   }
