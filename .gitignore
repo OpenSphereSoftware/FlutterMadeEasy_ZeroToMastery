@@ -25,3 +25,6 @@ doc/api/
 5_todo_app/lib/firebase_options.dart
 5_todo_app/ios/Runner/GoogleService-Info.plist
 5_todo_app/ios/firebase_app_id_file.json
+
+# FVM Version Cache
+.fvm/
