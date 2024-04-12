@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class FirstColumnChild extends StatelessWidget {
   const FirstColumnChild({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

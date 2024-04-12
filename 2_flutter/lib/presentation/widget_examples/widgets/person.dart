@@ -13,8 +13,8 @@ class Person extends StatelessWidget {
     required this.age,
     required this.country,
     required this.job,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

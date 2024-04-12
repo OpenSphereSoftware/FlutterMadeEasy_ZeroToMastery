@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class MaxBerktold extends StatelessWidget {
   const MaxBerktold({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

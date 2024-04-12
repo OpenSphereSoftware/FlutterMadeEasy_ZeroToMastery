@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ButtonExamples extends StatefulWidget {
-  const ButtonExamples({Key? key}) : super(key: key);
+  const ButtonExamples({super.key});
 
   @override
   State<ButtonExamples> createState() => _ButtonExamplesState();

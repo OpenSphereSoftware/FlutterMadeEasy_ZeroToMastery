@@ -19,7 +19,7 @@ class UniqueId with EquatableMixin {
 }
 
 class CollectionId extends UniqueId {
-  const CollectionId._(String value) : super._(value);
+  const CollectionId._(super.value) : super._();
 
   factory CollectionId() {
     return CollectionId._(const Uuid().v4());
@@ -31,7 +31,7 @@ class CollectionId extends UniqueId {
 }
 
 class EntryId extends UniqueId {
-  const EntryId._(String value) : super._(value);
+  const EntryId._(super.value) : super._();
 
   factory EntryId() {
     return EntryId._(const Uuid().v4());

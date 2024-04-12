@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterbasics/presentation/theme_animation/widgets/sun_shine.dart';
 
 class Sun extends StatelessWidget {
-  const Sun({Key? key}) : super(key: key);
+  const Sun({super.key});
 
   @override
   Widget build(BuildContext context) {

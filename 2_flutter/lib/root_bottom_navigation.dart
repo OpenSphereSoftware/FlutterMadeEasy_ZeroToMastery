@@ -5,7 +5,7 @@ import 'package:flutterbasics/presentation/theme_animation/theme_animation_scree
 import 'package:flutterbasics/presentation/widget_examples/widget_examples_screen.dart';
 
 class RootBottomNavigation extends StatefulWidget {
-  const RootBottomNavigation({Key? key}) : super(key: key);
+  const RootBottomNavigation({super.key});
 
   @override
   State<RootBottomNavigation> createState() => _RootBottomNavigationState();

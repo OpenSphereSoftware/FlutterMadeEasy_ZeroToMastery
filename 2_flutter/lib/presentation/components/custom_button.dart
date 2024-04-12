@@ -5,11 +5,10 @@ class CustomButton extends StatelessWidget {
   final IconData icon;
   final Color iconColor;
   const CustomButton(
-      {Key? key,
+      {super.key,
       required this.onTap,
       required this.icon,
-      required this.iconColor})
-      : super(key: key);
+      required this.iconColor});
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +43,10 @@ class CustomButtonGesture extends StatelessWidget {
   final String text;
 
   const CustomButtonGesture({
-    Key? key,
+    super.key,
     required this.onTap,
     required this.text,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

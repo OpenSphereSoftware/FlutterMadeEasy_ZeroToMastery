@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 class ListItem extends StatefulWidget {
   final String title;
   final int index;
-  const ListItem({Key? key, required this.title, required this.index})
-      : super(key: key);
+  const ListItem({super.key, required this.title, required this.index});
 
   @override
   State<ListItem> createState() => _ListItemState();
