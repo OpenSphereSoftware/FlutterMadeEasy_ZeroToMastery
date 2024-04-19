@@ -22,23 +22,29 @@ class ToDoOverviewLoaded extends StatelessWidget {
         final item = collections[index];
         final colorScheme = Theme.of(context).colorScheme;
 
-        return ListTile(
-          tileColor: colorScheme.surface,
-          selectedTileColor: colorScheme.surfaceVariant,
-          iconColor: item.color.color,
-          selectedColor: item.color.color,
-          onTap: () {
-            context.read<NavigationToDoCubit>().selectedToDoCollectionChanged(item.id);
+        return BlocBuilder<NavigationToDoCubit, NavigationToDoCubitState>(
+          buildWhen: (previous, current) => previous.selectedCollectionId != current.selectedCollectionId,
+          builder: (context, state) {
+            return ListTile(
+              tileColor: colorScheme.surface,
+              selectedTileColor: colorScheme.surfaceVariant,
+              iconColor: item.color.color,
+              selectedColor: item.color.color,
+              selected: state.selectedCollectionId == item.id,
+              onTap: () {
+                context.read<NavigationToDoCubit>().selectedToDoCollectionChanged(item.id);
 
-            if (Breakpoints.small.isActive(context)) {
-              context.pushNamed(
-                ToDoDetailPage.pageConfig.name,
-                params: {'collectionId': item.id.value},
-              );
-            }
+                if (Breakpoints.small.isActive(context)) {
+                  context.pushNamed(
+                    ToDoDetailPage.pageConfig.name,
+                    params: {'collectionId': item.id.value},
+                  );
+                }
+              },
+              leading: const Icon(Icons.circle),
+              title: Text(item.title),
+            );
           },
-          leading: const Icon(Icons.circle),
-          title: Text(item.title),
         );
       },
     );
