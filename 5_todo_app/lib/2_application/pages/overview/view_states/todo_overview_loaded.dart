@@ -32,7 +32,7 @@ class ToDoOverviewLoaded extends StatelessWidget {
               builder: (context, state) {
                 return ListTile(
                   tileColor: colorScheme.surface,
-                  selectedTileColor: colorScheme.surfaceVariant,
+                  selectedTileColor: colorScheme.surfaceContainerHighest,
                   iconColor: item.color.color,
                   selectedColor: item.color.color,
                   selected: state.selectedCollectionId == item.id,
