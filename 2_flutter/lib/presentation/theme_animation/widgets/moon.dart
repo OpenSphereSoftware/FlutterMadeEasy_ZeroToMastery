@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Moon extends StatelessWidget {
-  const Moon({Key? key}) : super(key: key);
+  const Moon({super.key});
 
   @override
   Widget build(BuildContext context) {

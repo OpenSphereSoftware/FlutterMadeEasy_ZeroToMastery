@@ -6,7 +6,7 @@ import 'package:flutterbasics/presentation/theme_animation/widgets/sun.dart';
 import 'package:provider/provider.dart';
 
 class ThemeAnimationScreen extends StatelessWidget {
-  const ThemeAnimationScreen({Key? key}) : super(key: key);
+  const ThemeAnimationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 class SunShine extends StatelessWidget {
   final double radius;
   final Widget child;
-  const SunShine({Key? key, required this.child, required this.radius})
-      : super(key: key);
+  const SunShine({super.key, required this.child, required this.radius});
 
   @override
   Widget build(BuildContext context) {

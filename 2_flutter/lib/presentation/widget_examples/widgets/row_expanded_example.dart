@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class RowEpandedExample extends StatelessWidget {
   const RowEpandedExample({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

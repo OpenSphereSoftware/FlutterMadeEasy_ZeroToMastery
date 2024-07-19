@@ -23,9 +23,9 @@ class AdvicerCubit extends Cubit<AdvicerCubitState> {
 
   String _mapFailureToMessage(Failure failure) {
     switch (failure.runtimeType) {
-      case ServerFailure:
+      case ServerFailure _:
         return serverFailureMessage;
-      case CacheFailure:
+      case CacheFailure _:
         return cacheFailureMessage;
       default:
         return generalFailureMessage;

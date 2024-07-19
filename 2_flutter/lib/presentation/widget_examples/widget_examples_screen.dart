@@ -11,7 +11,7 @@ import 'package:flutterbasics/presentation/widget_examples/widgets/row_expanded_
 import 'package:provider/provider.dart';
 
 class WidgetExampleScreen extends StatelessWidget {
-  const WidgetExampleScreen({Key? key}) : super(key: key);
+  const WidgetExampleScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
