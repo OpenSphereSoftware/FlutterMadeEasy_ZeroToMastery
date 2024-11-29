@@ -63,7 +63,7 @@ class ToDoOverviewLoaded extends StatelessWidget {
               tooltip: 'overview_add_collection'.tr(),
               onPressed: () {
                 context.pushNamed(CreateToDoCollectionPage.pageConfig.name).then((value) {
-                  if (value == true) {
+                  if (value == true && context.mounted) {
                     context.read<ToDoOverviewCubit>().readToDoCollections();
                   }
                 });
