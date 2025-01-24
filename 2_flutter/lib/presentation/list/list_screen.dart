@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterbasics/presentation/list/widgets/list_item.dart';
 
 class ListScreen extends StatelessWidget {
-  const ListScreen({Key? key}) : super(key: key);
+  const ListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

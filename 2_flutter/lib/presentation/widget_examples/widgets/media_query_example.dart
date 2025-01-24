@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class MediaQueryExample extends StatelessWidget {
   const MediaQueryExample({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
