@@ -11,7 +11,9 @@ class SunShine extends StatelessWidget {
       height: radius,
       width: radius,
       decoration: BoxDecoration(
-          shape: BoxShape.circle, color: Colors.white.withOpacity(0.1)),
+        shape: BoxShape.circle,
+        color: Colors.white.withValues(alpha: .1),
+      ),
       child: Center(child: child),
     );
   }

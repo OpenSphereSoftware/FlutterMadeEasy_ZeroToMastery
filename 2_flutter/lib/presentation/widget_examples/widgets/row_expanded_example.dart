@@ -8,6 +8,7 @@ class RowEpandedExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      spacing: 8,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         const Expanded(
@@ -22,16 +23,10 @@ class RowEpandedExample extends StatelessWidget {
           width: 20,
           color: Colors.blue,
         ),
-        const SizedBox(
-          width: 8,
-        ),
         Container(
           height: 20,
           width: 20,
           color: Colors.green,
-        ),
-        const SizedBox(
-          width: 8,
         ),
       ],
     );

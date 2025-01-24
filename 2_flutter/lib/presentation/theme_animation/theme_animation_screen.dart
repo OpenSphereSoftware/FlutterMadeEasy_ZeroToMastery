@@ -24,9 +24,7 @@ class ThemeAnimationScreen extends StatelessWidget {
               decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                        color: themeService.isDarkModeOn
-                            ? Colors.black.withOpacity(0.7)
-                            : Colors.grey,
+                        color: themeService.isDarkModeOn ? Colors.black.withValues(alpha: 0.7) : Colors.grey,
                         offset: const Offset(0, 5),
                         blurRadius: 10,
                         spreadRadius: 3)
@@ -39,11 +37,7 @@ class ThemeAnimationScreen extends StatelessWidget {
                             Color(0xFF6B66CC),
                             Color(0xFF200F75),
                           ]
-                        : const [
-                            Color(0xDDFFFA66),
-                            Color(0xDDFFA057),
-                            Color(0xDD940B99)
-                          ],
+                        : const [Color(0xDDFFFA66), Color(0xDDFFA057), Color(0xDD940B99)],
                     begin: Alignment.bottomCenter,
                     end: Alignment.topCenter,
                   )),
@@ -100,8 +94,7 @@ class ThemeAnimationScreen extends StatelessWidget {
                   ),
                   AnimatedPadding(
                       duration: const Duration(milliseconds: 200),
-                      padding: EdgeInsets.only(
-                          top: themeService.isDarkModeOn ? 110 : 50),
+                      padding: EdgeInsets.only(top: themeService.isDarkModeOn ? 110 : 50),
                       child: const Center(child: Sun())),
                   Align(
                     alignment: Alignment.bottomCenter,
@@ -109,32 +102,23 @@ class ThemeAnimationScreen extends StatelessWidget {
                       height: 225,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          color: themeService.isDarkModeOn
-                              ? Colors.grey[800]
-                              : Colors.white,
+                          color: themeService.isDarkModeOn ? Colors.grey[800] : Colors.white,
                           borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(15),
-                              bottomRight: Radius.circular(15))),
+                              bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15))),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            themeService.isDarkModeOn
-                                ? 'To dark?'
-                                : 'To bright?',
-                            style: const TextStyle(
-                                fontSize: 21, fontWeight: FontWeight.w600),
+                            themeService.isDarkModeOn ? 'To dark?' : 'To bright?',
+                            style: const TextStyle(fontSize: 21, fontWeight: FontWeight.w600),
                             textAlign: TextAlign.center,
                           ),
                           const SizedBox(
                             height: 30,
                           ),
                           Text(
-                            themeService.isDarkModeOn
-                                ? 'let the sun rise'
-                                : 'let it be night',
-                            style: const TextStyle(
-                                fontSize: 18, fontStyle: FontStyle.italic),
+                            themeService.isDarkModeOn ? 'let the sun rise' : 'let it be night',
+                            style: const TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
                             textAlign: TextAlign.center,
                           ),
                           const SizedBox(
