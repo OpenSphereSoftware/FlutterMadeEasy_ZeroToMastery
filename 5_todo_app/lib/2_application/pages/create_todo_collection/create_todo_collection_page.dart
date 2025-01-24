@@ -82,8 +82,12 @@ class _CreateToDoCollectionPageState extends State<CreateToDoCollectionPage> {
                 final isValide = _formKey.currentState?.validate();
                 if (isValide == true) {
                   context.read<CreateToDoCollectionPageCubit>().submit().then(
-                        (_) => context.pop(true),
-                      );
+                    (_) {
+                      if (context.mounted) {
+                        context.pop(true);
+                      }
+                    },
+                  );
                 }
               },
               child: Text('colelction_save'.tr()),

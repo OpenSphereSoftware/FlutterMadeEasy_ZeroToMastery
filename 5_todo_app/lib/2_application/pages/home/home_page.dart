@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                     selectedIndex: widget.index,
                     destinations: destinations
                         .map(
-                          (_) => AdaptiveScaffold.toRailDestination(_),
+                          (destination) => AdaptiveScaffold.toRailDestination(destination),
                         )
                         .toList(),
                   ),
